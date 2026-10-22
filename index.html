@@ -249,12 +249,59 @@
           class="relative py-2 font-title-md text-title-md text-on-surface-variant hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-primary after:transition-all after:duration-300"
           data-path="contact" href="#">Contact</a>
       </nav>
-      <div class="flex items-center gap-space-md shrink-0"><a
-          class="hidden sm:inline-flex items-center justify-center bg-primary-container text-on-primary font-title-md text-title-md px-space-lg py-space-sm rounded-lg hover:bg-navy-deep hover:shadow-[0_4px_16px_rgba(7,29,61,0.22)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 shadow-[0_2px_6px_-1px_rgba(7,29,61,0.08)]"
+      <div class="flex items-center gap-space-md shrink-0">
+        <a class="hidden sm:inline-flex items-center justify-center bg-primary-container text-on-primary font-title-md text-title-md px-space-lg py-space-sm rounded-lg hover:bg-navy-deep hover:shadow-[0_4px_16px_rgba(7,29,61,0.22)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 shadow-[0_2px_6px_-1px_rgba(7,29,61,0.08)]"
           data-path="request-a-consultation" href="#">Request a Consultation</a>
-        <div
-          class="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer hover:bg-secondary transition-colors duration-200 hover:scale-105 active:scale-95">
-          <span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+        <!-- Tablet & Mobile Menu Toggle Button -->
+        <button id="mobile-menu-toggle" type="button" aria-label="Toggle navigation menu"
+          class="lg:hidden p-2 rounded-lg border border-[#DCE4ED] bg-surface-white hover:bg-pale-blue text-navy-deep hover:text-primary transition-all duration-200 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary/20">
+          <span id="menu-icon-bars" class="material-symbols-outlined text-[24px]">menu</span>
+          <span id="menu-icon-close" class="material-symbols-outlined text-[24px] hidden">close</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile & Tablet Dropdown Navigation Menu -->
+    <div id="mobile-menu"
+      class="hidden lg:hidden w-full bg-surface-white/98 backdrop-blur-xl border-b border-[#DCE4ED] shadow-xl transition-all duration-300 max-h-[calc(100vh-6rem)] overflow-y-auto">
+      <div class="max-w-[1280px] mx-auto px-gutter py-5 flex flex-col gap-3">
+        <nav class="flex flex-col gap-1">
+          <a class="px-4 py-2.5 rounded-lg text-primary font-title-md font-semibold bg-pale-blue/60"
+            data-path="home" href="#">Home</a>
+          <a class="px-4 py-2.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-pale-blue/40 font-title-md font-semibold transition-colors"
+            data-path="about" href="#">About</a>
+          
+          <!-- Services Collapsible on Mobile/Tablet -->
+          <div class="flex flex-col">
+            <button id="mobile-services-toggle" type="button"
+              class="w-full px-4 py-2.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-pale-blue/40 font-title-md font-semibold flex items-center justify-between transition-colors">
+              <span>Services</span>
+              <span id="mobile-services-icon" class="material-symbols-outlined text-[20px] transition-transform duration-200">expand_more</span>
+            </button>
+            <div id="mobile-services-menu" class="hidden pl-4 pr-2 py-1.5 flex flex-col gap-1 border-l-2 border-primary/20 ml-4 my-1">
+              <a class="px-3 py-2 rounded text-sm text-on-surface-variant hover:text-primary hover:bg-pale-blue/40 transition-colors font-medium"
+                data-path="turnkey-project-solutions" href="#">Turnkey Project Solutions</a>
+              <a class="px-3 py-2 rounded text-sm text-on-surface-variant hover:text-primary hover:bg-pale-blue/40 transition-colors font-medium"
+                data-path="audit-compliance" href="#">Audit Compliance</a>
+              <a class="px-3 py-2 rounded text-sm text-on-surface-variant hover:text-primary hover:bg-pale-blue/40 transition-colors font-medium"
+                data-path="gap-assessment" href="#">GAP Assessment</a>
+              <a class="px-3 py-2 rounded text-sm text-on-surface-variant hover:text-primary hover:bg-pale-blue/40 transition-colors font-medium"
+                data-path="validation-services" href="#">Validation Services</a>
+            </div>
+          </div>
+
+          <a class="px-4 py-2.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-pale-blue/40 font-title-md font-semibold transition-colors"
+            data-path="industries" href="#">Industries</a>
+          <a class="px-4 py-2.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-pale-blue/40 font-title-md font-semibold transition-colors"
+            data-path="insights" href="#">Insights</a>
+          <a class="px-4 py-2.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-pale-blue/40 font-title-md font-semibold transition-colors"
+            data-path="contact" href="#">Contact</a>
+        </nav>
+
+        <div class="pt-2 border-t border-[#DCE4ED] flex flex-col sm:hidden gap-3">
+          <a class="w-full inline-flex items-center justify-center gap-2 bg-primary-container text-on-primary font-title-md py-3 rounded-lg hover:bg-navy-deep transition-all duration-200 shadow-sm"
+            data-path="request-a-consultation" href="#">Request a Consultation</a>
+        </div>
       </div>
     </div>
   </header>
@@ -1782,6 +1829,54 @@
             hero.style.setProperty('--mouse-y', `${y}px`);
             hoverDots.style.opacity = '1';
             if (cursorGlow) cursorGlow.style.opacity = '1';
+          });
+        }
+
+        // Mobile & Tablet Menu Toggle
+        const menuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconBars = document.getElementById('menu-icon-bars');
+        const iconClose = document.getElementById('menu-icon-close');
+
+        if (menuToggle && mobileMenu) {
+          menuToggle.addEventListener('click', () => {
+            const isClosed = mobileMenu.classList.contains('hidden');
+            if (isClosed) {
+              mobileMenu.classList.remove('hidden');
+              iconBars?.classList.add('hidden');
+              iconClose?.classList.remove('hidden');
+            } else {
+              mobileMenu.classList.add('hidden');
+              iconBars?.classList.remove('hidden');
+              iconClose?.classList.add('hidden');
+            }
+          });
+
+          // Close menu on link click
+          mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+              mobileMenu.classList.add('hidden');
+              iconBars?.classList.remove('hidden');
+              iconClose?.classList.add('hidden');
+            });
+          });
+        }
+
+        // Mobile Services Submenu Accordion
+        const servicesToggle = document.getElementById('mobile-services-toggle');
+        const servicesMenu = document.getElementById('mobile-services-menu');
+        const servicesIcon = document.getElementById('mobile-services-icon');
+
+        if (servicesToggle && servicesMenu) {
+          servicesToggle.addEventListener('click', () => {
+            const isHidden = servicesMenu.classList.contains('hidden');
+            if (isHidden) {
+              servicesMenu.classList.remove('hidden');
+              servicesIcon?.classList.add('rotate-180');
+            } else {
+              servicesMenu.classList.add('hidden');
+              servicesIcon?.classList.remove('rotate-180');
+            }
           });
         }
       }
