@@ -1,0 +1,1876 @@
+﻿<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="web_standard" name="shell-type" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <style>
+    @layer base {
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        overscroll-behavior: none;
+      }
+
+      main>:first-child {
+        margin-top: 0 !important;
+      }
+
+      main>:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Scroll Reveal / AOS Animation Styles */
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition-property: opacity, transform;
+      transition-duration: 750ms;
+      transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-fade {
+      opacity: 0;
+      transition-property: opacity;
+      transition-duration: 750ms;
+      transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity;
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.96) translateY(20px);
+      transition-property: opacity, transform;
+      transition-duration: 800ms;
+      transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-up.aos-animate,
+    .reveal-fade.aos-animate,
+    .reveal-scale.aos-animate {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Stagger delays */
+    [data-aos-delay="100"] {
+      transition-delay: 100ms;
+    }
+
+    [data-aos-delay="150"] {
+      transition-delay: 150ms;
+    }
+
+    [data-aos-delay="200"] {
+      transition-delay: 200ms;
+    }
+
+    [data-aos-delay="250"] {
+      transition-delay: 250ms;
+    }
+
+    [data-aos-delay="300"] {
+      transition-delay: 300ms;
+    }
+
+    [data-aos-delay="350"] {
+      transition-delay: 350ms;
+    }
+
+    [data-aos-delay="400"] {
+      transition-delay: 400ms;
+    }
+
+    [data-aos-delay="500"] {
+      transition-delay: 500ms;
+    }
+
+    /* Ambient Pulse for Dark Section Motif */
+    @keyframes ambient-glow {
+
+      0%,
+      100% {
+        opacity: 0.12;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.26;
+        transform: scale(1.025);
+      }
+    }
+
+    .ambient-pulse {
+      animation: ambient-glow 7s ease-in-out infinite;
+    }
+
+    /* Accordion Transition Smoothness */
+    .faq-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 300ms cubic-bezier(0.16, 1, 0.3, 1), opacity 250ms ease;
+      opacity: 0;
+      overflow: hidden;
+    }
+
+    .faq-content.open {
+      grid-template-rows: 1fr;
+      opacity: 1;
+    }
+
+    .faq-inner {
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    /* Accessibility: Prefers reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+
+      .reveal-up,
+      .reveal-fade,
+      .reveal-scale,
+      [data-aos-delay] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+      }
+
+      .ambient-pulse {
+        animation: none !important;
+        opacity: 0.15 !important;
+      }
+    }
+
+    /* Responsive Gutter Padding for screens 991px and below */
+    @media (max-width: 991px) {
+      .px-gutter {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+    }
+
+    /* Comprehensive Responsive Heading Scales */
+    @media (max-width: 768px) {
+      .font-headline-xl, .text-headline-xl {
+        font-size: 1.875rem !important; /* 30px */
+        line-height: 2.25rem !important;
+      }
+      .font-headline-lg, .text-headline-lg {
+        font-size: 1.5rem !important; /* 24px */
+        line-height: 2rem !important;
+      }
+      .font-headline-md, .text-headline-md {
+        font-size: 1.25rem !important; /* 20px */
+        line-height: 1.75rem !important;
+      }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .font-headline-xl, .text-headline-xl {
+        font-size: 2.25rem !important; /* 36px */
+        line-height: 2.75rem !important;
+      }
+      .font-headline-lg, .text-headline-lg {
+        font-size: 1.75rem !important; /* 28px */
+        line-height: 2.25rem !important;
+      }
+      .font-headline-md, .text-headline-md {
+        font-size: 1.5rem !important; /* 24px */
+        line-height: 2rem !important;
+      }
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script
+    id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-background": "#191c1e", "inverse-on-surface": "#eff1f3", "surface-dim": "#d8dadc", "on-tertiary": "#ffffff", "on-primary-fixed-variant": "#214583", "on-tertiary-fixed": "#051b3b", "on-surface": "#191c1e", "surface-bright": "#f7f9fb", "tertiary": "#122646", "navy-deep": "#071D3D", "error": "#ba1a1a", "on-secondary-container": "#006171", "surface": "#f7f9fb", "surface-variant": "#e0e3e5", "primary-container": "#123a78", "secondary-fixed": "#abedff", "on-tertiary-container": "#94a7ce", "on-tertiary-fixed-variant": "#344769", "primary-fixed": "#d8e2ff", "pale-blue": "#EAF4FB", "on-secondary": "#ffffff", "secondary-container": "#5adffd", "secondary": "#00687a", "on-error-container": "#93000a", "on-error": "#ffffff", "surface-container-low": "#f2f4f6", "primary": "#002457", "surface-tint": "#3c5d9d", "on-primary-container": "#86a6eb", "surface-container-lowest": "#ffffff", "outline": "#747781", "inverse-primary": "#aec6ff", "secondary-fixed-dim": "#50d7f5", "background": "#f7f9fb", "surface-container-highest": "#e0e3e5", "surface-container-high": "#e6e8ea", "tertiary-container": "#293c5d", "surface-container": "#eceef0", "surface-white": "#FFFFFF", "on-secondary-fixed": "#001f26", "on-primary": "#ffffff", "primary-fixed-dim": "#aec6ff", "error-container": "#ffdad6", "outline-variant": "#c4c6d2", "inverse-surface": "#2d3133", "on-surface-variant": "#434750", "tertiary-fixed-dim": "#b4c7ef", "tertiary-fixed": "#d7e2ff", "on-primary-fixed": "#001a42", "on-secondary-fixed-variant": "#004e5c" }, borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" }, spacing: { "space-xl": "2.5rem", "space-sm": "0.5rem", margin: "3rem", gutter: "1.5rem", "space-md": "1rem", "gutter-mobile": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin-mobile": "1.25rem" }, fontFamily: { "headline-md": ["Manrope"], "headline-sm": ["Manrope"], "headline-xl-mobile": ["Manrope"], "body-lg": ["Inter"], "headline-lg-mobile": ["Manrope"], "headline-lg": ["Manrope"], "label-sm": ["Inter"], "body-md": ["Inter"], "headline-xl": ["Manrope"], "body-sm": ["Inter"], "title-md": ["Manrope"], "title-lg": ["Manrope"], "label-md": ["Inter"] }, fontSize: { "headline-md": ["28px", { lineHeight: "36px", fontWeight: "600" }], "headline-sm": ["22px", { lineHeight: "30px", fontWeight: "600" }], "headline-xl-mobile": ["32px", { lineHeight: "40px", fontWeight: "700" }], "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }], "headline-lg-mobile": ["26px", { lineHeight: "34px", fontWeight: "600" }], "headline-lg": ["36px", { lineHeight: "44px", fontWeight: "600" }], "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "500" }], "body-md": ["15px", { lineHeight: "24px", fontWeight: "400" }], "headline-xl": ["48px", { lineHeight: "56px", fontWeight: "700" }], "body-sm": ["13px", { lineHeight: "20px", fontWeight: "400" }], "title-md": ["16px", { lineHeight: "24px", fontWeight: "600" }], "title-lg": ["18px", { lineHeight: "26px", fontWeight: "600" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }] } } } };</script>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface antialiased">
+  <header
+    class="fixed top-0 left-0 right-0 z-50 bg-surface-white/95 backdrop-blur-md border-b border-[#DCE4ED] shadow-[0_1px_8px_rgba(7,29,61,0.04)] transition-all duration-200">
+    <div class="h-24 max-w-[1280px] mx-auto px-gutter flex items-center justify-between gap-gutter">
+      <div class="flex items-center gap-space-md shrink-0"><a class="flex items-center group"
+          data-path="home" href="#"><img alt="Priel Pharma - GxP Solutions"
+            class="h-16 lg:h-[72px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            src="img/pirel-logo.png" />
+        </a></div>
+      <nav class="hidden lg:flex items-center gap-space-lg"
+        data-active-classes="text-primary font-title-md font-semibold"><a aria-current="page"
+          class="relative py-2 transition-colors text-primary font-title-md font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary"
+          data-path="home" href="#">Home</a><a
+          class="relative py-2 font-title-md text-title-md text-on-surface-variant hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-primary after:transition-all after:duration-300"
+          data-path="about" href="#">About</a>
+        <div class="relative group py-space-sm"><button
+            class="font-title-md text-title-md text-on-surface-variant hover:text-primary flex items-center gap-space-xs transition-colors py-2"
+            type="button">Services<span
+              class="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:rotate-180">expand_more</span></button>
+          <div
+            class="absolute left-0 top-full hidden group-hover:flex flex-col w-64 bg-surface-white border border-[#DCE4ED] rounded-lg shadow-[0_8px_24px_-4px_rgba(7,29,61,0.12)] py-space-xs z-50 transform origin-top transition-all duration-200 animate-in fade-in-0 zoom-in-95">
+            <a class="px-space-md py-space-sm font-body-sm text-body-sm text-on-surface-variant hover:bg-pale-blue hover:text-primary hover:translate-x-1 transition-all duration-200"
+              data-path="turnkey-project-solutions" href="#">Turnkey Project Solutions</a><a
+              class="px-space-md py-space-sm font-body-sm text-body-sm text-on-surface-variant hover:bg-pale-blue hover:text-primary hover:translate-x-1 transition-all duration-200"
+              data-path="audit-compliance" href="#">Audit Compliance</a><a
+              class="px-space-md py-space-sm font-body-sm text-body-sm text-on-surface-variant hover:bg-pale-blue hover:text-primary hover:translate-x-1 transition-all duration-200"
+              data-path="gap-assessment" href="#">GAP Assessment</a><a
+              class="px-space-md py-space-sm font-body-sm text-body-sm text-on-surface-variant hover:bg-pale-blue hover:text-primary hover:translate-x-1 transition-all duration-200"
+              data-path="validation-services" href="#">Validation Services</a></div>
+        </div><a
+          class="relative py-2 font-title-md text-title-md text-on-surface-variant hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-primary after:transition-all after:duration-300"
+          data-path="industries" href="#">Industries</a><a
+          class="relative py-2 font-title-md text-title-md text-on-surface-variant hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-primary after:transition-all after:duration-300"
+          data-path="insights" href="#">Insights</a><a
+          class="relative py-2 font-title-md text-title-md text-on-surface-variant hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-primary after:transition-all after:duration-300"
+          data-path="contact" href="#">Contact</a>
+      </nav>
+      <div class="flex items-center gap-space-md shrink-0"><a
+          class="hidden sm:inline-flex items-center justify-center bg-primary-container text-on-primary font-title-md text-title-md px-space-lg py-space-sm rounded-lg hover:bg-navy-deep hover:shadow-[0_4px_16px_rgba(7,29,61,0.22)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 shadow-[0_2px_6px_-1px_rgba(7,29,61,0.08)]"
+          data-path="request-a-consultation" href="#">Request a Consultation</a>
+        <div
+          class="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer hover:bg-secondary transition-colors duration-200 hover:scale-105 active:scale-95">
+          <span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+      </div>
+    </div>
+  </header>
+  <main class="w-full pt-24 bg-surface">
+    <div class="flex flex-col w-full">
+      <!-- SECTION 1: HERO -->
+      <section class="relative w-full bg-surface-white py-space-xl lg:py-24 overflow-hidden" id="hero-section">
+        <!-- Modern Biotech Dot-Matrix Pattern & Ambient Glows -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden select-none">
+          <!-- Ambient Glow Orb 1 (Top-Right / Behind Hero Image) -->
+          <div
+            class="absolute -top-20 right-[-8%] w-[680px] h-[680px] rounded-full bg-gradient-to-bl from-secondary-container/25 via-[#abedff]/20 to-transparent blur-3xl opacity-80 ambient-pulse">
+          </div>
+          <!-- Ambient Glow Orb 2 (Center-Right Vibrant Cyan Core) -->
+          <div
+            class="absolute top-1/4 right-[10%] w-[480px] h-[480px] rounded-full bg-gradient-to-tr from-secondary-fixed/40 via-secondary-container/15 to-transparent blur-2xl opacity-70">
+          </div>
+          <!-- Ambient Glow Orb 3 (Bottom-Left Soft Powder Blue) -->
+          <div
+            class="absolute -bottom-28 left-[-5%] w-[520px] h-[520px] rounded-full bg-gradient-to-tr from-[#d8e2ff]/40 via-pale-blue/30 to-transparent blur-3xl opacity-60">
+          </div>
+
+          <!-- Base Light Dot Matrix Layer (Always visible everywhere, light and subtle) -->
+          <svg class="absolute inset-0 w-full h-full opacity-40" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="hero-dot-matrix-light" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1.15" fill="#00687a" fill-opacity="0.25" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#hero-dot-matrix-light)" />
+          </svg>
+
+          <!-- Interactive Dark Dot Grid (Revealed strictly where hovered) -->
+          <div id="hero-hover-dots" class="absolute inset-0 pointer-events-none transition-opacity duration-300 opacity-0"
+               style="mask-image: radial-gradient(190px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), black 0%, rgba(0,0,0,0.5) 45%, transparent 100%); -webkit-mask-image: radial-gradient(190px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), black 0%, rgba(0,0,0,0.5) 45%, transparent 100%);">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="hero-dot-matrix-dark" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+                  <circle cx="2" cy="2" r="1.8" fill="#071D3D" fill-opacity="0.9" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#hero-dot-matrix-dark)" />
+            </svg>
+          </div>
+
+          <!-- Interactive Hover Spotlight Subtle Glow -->
+          <div id="hero-cursor-glow" class="absolute pointer-events-none -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-secondary-container/15 blur-2xl opacity-0 transition-opacity duration-300"
+               style="left: var(--mouse-x, -999px); top: var(--mouse-y, -999px);"></div>
+        </div>
+        <div class="max-w-[1280px] mx-auto px-gutter relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+            <!-- Left Content -->
+            <div class="lg:col-span-7 flex flex-col gap-space-md reveal-up" data-aos-delay="100">
+              <div
+                class="inline-flex items-center gap-space-xs self-start px-space-md py-1 rounded-full bg-pale-blue text-primary border border-primary/10 hover:border-primary/30 transition-colors">
+                <span class="w-2 h-2 rounded-full bg-secondary-fixed-dim"></span>
+                <span
+                  class="font-label-sm text-label-sm uppercase tracking-wider font-semibold text-primary">PHARMACEUTICAL
+                  QUALITY • VALIDATION • COMPLIANCE</span>
+              </div>
+              <h1 class="font-headline-xl text-3xl sm:text-4xl lg:text-headline-xl text-navy-deep tracking-tight leading-tight">
+                Qualification, Validation &amp; Compliance — Built Around Your Project.
+              </h1>
+              <p class="font-body-lg text-base sm:text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+                PRIEL Pharma GxP Solutions supports pharmaceutical and life-sciences teams with practical qualification,
+                validation, turnkey project, and regulatory compliance services.
+              </p>
+              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-space-md pt-space-xs">
+                <a class="inline-flex items-center justify-center gap-2 bg-primary-container text-on-primary font-title-md text-sm sm:text-title-md px-6 sm:px-8 py-3.5 sm:py-space-md rounded-lg hover:bg-navy-deep hover:shadow-[0_8px_20px_rgba(7,29,61,0.25)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 shadow-md group whitespace-nowrap"
+                  data-path="request-a-consultation" href="#">
+                  <span>Request a Consultation</span>
+                  <span
+                    class="material-symbols-outlined text-[18px] sm:text-[20px] transition-transform duration-200 group-hover:translate-x-1.5 shrink-0">arrow_forward</span>
+                </a>
+                <a class="inline-flex items-center justify-center bg-surface-container-low text-primary font-title-md text-sm sm:text-title-md px-6 sm:px-space-lg py-3.5 sm:py-space-md rounded-lg hover:bg-pale-blue hover:text-navy-deep hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 border border-transparent hover:border-primary/10 whitespace-nowrap"
+                  href="#services">
+                  Explore Our Services
+                </a>
+              </div>
+              <p class="font-body-sm text-body-sm text-outline flex items-center gap-2 pt-space-xs">
+                <span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+                Practical execution. Clear documentation. Quality-focused support.
+              </p>
+              <!-- Focus Area Pills -->
+              <div class="flex flex-wrap items-center gap-space-xs pt-space-sm">
+                <span class="font-label-sm text-label-sm text-outline-variant uppercase">Focus Areas:</span>
+                <span
+                  class="px-space-sm py-1 rounded-full bg-surface-container text-on-surface font-body-sm text-body-sm hover:bg-pale-blue hover:text-primary transition-colors cursor-default">Turnkey
+                  CQV</span>
+                <span
+                  class="px-space-sm py-1 rounded-full bg-surface-container text-on-surface font-body-sm text-body-sm hover:bg-pale-blue hover:text-primary transition-colors cursor-default">QMS
+                  Architecture</span>
+                <span
+                  class="px-space-sm py-1 rounded-full bg-surface-container text-on-surface font-body-sm text-body-sm hover:bg-pale-blue hover:text-primary transition-colors cursor-default">CSV
+                  / CSA</span>
+                <span
+                  class="px-space-sm py-1 rounded-full bg-surface-container text-on-surface font-body-sm text-body-sm hover:bg-pale-blue hover:text-primary transition-colors cursor-default">Audit
+                  Readiness</span>
+              </div>
+            </div>
+            <!-- Right Hero Image Panel -->
+            <div class="lg:col-span-5 relative mt-space-lg lg:mt-0 reveal-scale" data-aos-delay="250">
+              <!-- Soft Radiant Aura Glow behind the card -->
+              <div
+                class="absolute -inset-3 sm:-inset-4 rounded-[36px] bg-gradient-to-tr from-secondary-fixed/60 via-secondary-container/30 to-primary-container/20 blur-2xl opacity-70 pointer-events-none">
+              </div>
+              <div
+                class="relative w-full aspect-[4/3] sm:aspect-[1.34] rounded-3xl overflow-hidden shadow-2xl bg-surface-container-low border border-white/60 group">
+                <img
+                  alt="Clean, high-end photographic composition of a professional pharmaceutical validation engineer in lab cleanroom PPE inspecting stainless-steel bioreactor equipment in a pristine GMP pharmaceutical facility"
+                  class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  src="img/hero-bioreactor-cqv.webp" />
+                <div class="absolute inset-0 bg-gradient-to-t from-navy-deep/40 via-transparent to-transparent"></div>
+                <!-- Regulatory Precision Tag Overlay -->
+                <div
+                  class="absolute bottom-4 left-4 right-4 p-space-md bg-surface-white/95 backdrop-blur-md rounded-xl shadow-lg border border-white/80 flex items-center justify-between transition-transform duration-300 group-hover:-translate-y-1">
+                  <div class="flex items-center gap-space-sm">
+                    <div
+                      class="w-10 h-10 rounded-lg bg-pale-blue flex items-center justify-center text-primary shadow-sm transition-transform duration-300 group-hover:scale-110">
+                      <span class="material-symbols-outlined text-[22px]">biotech</span>
+                    </div>
+                    <div class="flex flex-col">
+                      <span class="font-title-md text-title-md text-navy-deep font-semibold">GxP Controlled</span>
+                      <span class="font-body-sm text-body-sm text-on-surface-variant">Validated Production
+                        Facility</span>
+                    </div>
+                  </div>
+                  <div
+                    class="flex items-center gap-2 bg-pale-blue/70 px-3 py-1.5 rounded-full border border-secondary/20">
+                    <span class="flex h-2.5 w-2.5 relative">
+                      <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-fixed-dim opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
+                    </span>
+                    <span
+                      class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">Active</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 2: COMPANY INTRODUCTION -->
+      <section class="w-full bg-surface py-space-xl lg:py-24">
+        <div class="max-w-[1280px] mx-auto px-gutter">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+            <!-- Editorial Content Left -->
+            <div class="lg:col-span-6 flex flex-col gap-space-md reveal-up" data-aos-delay="100">
+              <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-semibold">ABOUT
+                PRIEL</span>
+              <h2 class="font-headline-lg text-2xl sm:text-3xl lg:text-headline-lg text-navy-deep font-bold tracking-tight leading-tight">
+                Turning complex compliance requirements into clear, workable systems.
+              </h2>
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                PRIEL Pharma GxP Solutions provides specialized support for pharmaceutical, biotechnology, healthcare,
+                and allied industries. The team helps clients plan, document, execute, and maintain qualification,
+                validation, and compliance activities in line with applicable quality and regulatory expectations.
+              </p>
+              <!-- 3 Principle Cards -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-space-xs">
+                <div
+                  class="p-space-md bg-surface-white rounded-xl shadow-sm border border-[#DCE4ED] flex flex-col gap-space-xs hover:border-secondary/40 hover:-translate-y-1 hover:shadow-md transition-all duration-300 group">
+                  <div
+                    class="w-8 h-8 rounded-full bg-pale-blue flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-secondary group-hover:text-surface-white transition-all duration-300">
+                    <span class="material-symbols-outlined text-[18px]">health_and_safety</span>
+                  </div>
+                  <span class="font-title-md text-title-md text-navy-deep">Patient Safety</span>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">Uncompromising focus in every system
+                    parameter.</p>
+                </div>
+                <div
+                  class="p-space-md bg-surface-white rounded-xl shadow-sm border border-[#DCE4ED] flex flex-col gap-space-xs hover:border-secondary/40 hover:-translate-y-1 hover:shadow-md transition-all duration-300 group">
+                  <div
+                    class="w-8 h-8 rounded-full bg-pale-blue flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-secondary group-hover:text-surface-white transition-all duration-300">
+                    <span class="material-symbols-outlined text-[18px]">verified</span>
+                  </div>
+                  <span class="font-title-md text-title-md text-navy-deep">Product Quality</span>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">Purity and reproducible manufacturing
+                    fidelity.</p>
+                </div>
+                <div
+                  class="p-space-md bg-surface-white rounded-xl shadow-sm border border-[#DCE4ED] flex flex-col gap-space-xs hover:border-secondary/40 hover:-translate-y-1 hover:shadow-md transition-all duration-300 group">
+                  <div
+                    class="w-8 h-8 rounded-full bg-pale-blue flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-secondary group-hover:text-surface-white transition-all duration-300">
+                    <span class="material-symbols-outlined text-[18px]">security</span>
+                  </div>
+                  <span class="font-title-md text-title-md text-navy-deep">Data Integrity</span>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">Traceable ALCOA+ compliance across all
+                    records.</p>
+                </div>
+              </div>
+              <div class="pt-space-xs">
+                <a class="inline-flex items-center gap-space-xs text-primary font-title-md text-title-md group hover:text-secondary transition-colors"
+                  data-path="about" href="#">
+                  <span class="group-hover:underline">Get to Know Priel</span>
+                  <span
+                    class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:translate-x-1.5">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+            <!-- Rounded Image Right with Pale Blue Background Frame -->
+            <div class="lg:col-span-6 reveal-scale" data-aos-delay="200">
+              <div
+                class="relative p-2.5 sm:p-3 bg-pale-blue/60 rounded-[32px] border border-[#DCE4ED]/80 shadow-md transition-all duration-500 hover:shadow-xl hover:border-secondary/30">
+                <div
+                  class="relative w-full aspect-[4/3] sm:aspect-[1.34] rounded-3xl overflow-hidden shadow-lg bg-surface-white group">
+                  <img
+                    alt="Two pharmaceutical compliance consultants reviewing validation documents and quality audit reports around a modern glass conference table"
+                    class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    src="img/about-compliance-review.webp" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-navy-deep/20 via-transparent to-transparent"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 3: PRIORITY SERVICES -->
+      <section class="w-full bg-surface-white py-space-xl lg:py-24" id="services">
+        <div class="max-w-[1280px] mx-auto px-gutter">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-xl reveal-up">
+            <div class="flex flex-col gap-space-xs max-w-xl">
+              <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-semibold">CORE
+                EXPERTISE</span>
+              <h2 class="font-headline-lg text-2xl sm:text-3xl lg:text-headline-lg text-navy-deep font-bold tracking-tight">Four Ways We Help</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant">
+                Disciplined, regulatory-conscious consultation built specifically for GxP regulated manufacturing
+                facilities.
+              </p>
+            </div>
+            <a class="inline-flex items-center gap-space-xs text-primary font-title-md text-title-md group hover:text-secondary transition-colors"
+              data-path="services" href="#">
+              <span class="group-hover:underline">All Capabilities</span>
+              <span
+                class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:translate-x-1">chevron_right</span>
+            </a>
+          </div>
+          <!-- 2x2 Refined Service Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+            <!-- Service 1: Turnkey (Subtly highlighted) -->
+            <div
+              class="rounded-2xl bg-surface-white border border-primary/20 shadow-md hover:shadow-2xl hover:border-secondary/60 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group reveal-up"
+              data-aos-delay="100">
+              
+              <div>
+                <div class="w-full h-48 overflow-hidden relative">
+                  <img alt="Turnkey Project Solutions"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    src="img/service-turnkey-projects.webp" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-navy-deep/30 via-transparent to-transparent"></div>
+                  <div class="absolute bottom-2.5 left-3">
+                    <span
+                      class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-white/95 text-primary text-[10px] uppercase tracking-wider shadow-sm font-semibold transition-colors duration-200 group-hover:bg-primary group-hover:text-surface-white">
+                      <span class="material-symbols-outlined text-[12px]">account_tree</span> Project CQV
+                    </span>
+                  </div>
+                </div>
+                <div class="p-5 sm:p-8 pb-space-sm">
+                  <h3
+                    class="font-headline-sm text-lg sm:text-headline-sm text-navy-deep mb-space-xs group-hover:text-primary transition-colors">
+                    1. Turnkey Project Solutions</h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+                    Coordinated support across project planning, equipment qualification, validation activities, and
+                    compliance requirements.
+                  </p>
+                  <ul class="flex flex-col gap-space-xs mb-space-md text-on-surface">
+                    <li class="flex items-center gap-space-xs font-body-sm text-body-sm">
+                      <span
+                        class="material-symbols-outlined text-secondary text-[16px] transition-transform duration-200 group-hover:scale-110">check_circle</span>
+                      Project planning and critical path milestones
+                    </li>
+                    <li class="flex items-center gap-space-xs font-body-sm text-body-sm">
+                      <span
+                        class="material-symbols-outlined text-secondary text-[16px] transition-transform duration-200 group-hover:scale-110">check_circle</span>
+                      Equipment qualification coordination (DQ/IQ/OQ/PQ)
+                    </li>
+                    <li class="flex items-center gap-space-xs font-body-sm text-body-sm">
+                      <span
+                        class="material-symbols-outlined text-secondary text-[16px] transition-transform duration-200 group-hover:scale-110">check_circle</span>
+                      Validation activity coordination &amp; scheduling
+                    </li>
+                    <li class="flex items-center gap-space-xs font-body-sm text-body-sm">
+                      <span
+                        class="material-symbols-outlined text-secondary text-[16px] transition-transform duration-200 group-hover:scale-110">check_circle</span>
+                      Regulatory and audit documentation support
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="px-5 pb-5 sm:px-8 sm:pb-8 pt-0">
+                <a class="inline-flex items-center gap-space-xs text-primary font-title-md text-title-md group-hover:text-secondary transition-colors"
+                  data-path="turnkey-project-solutions" href="#">
+                  <span class="group-hover:underline">Explore Turnkey Projects</span>
+                  <span
+                    class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:translate-x-1.5">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+            <!-- Service 2: Audit Compliance -->
+            <div
+              class="rounded-2xl bg-surface-white border border-[#DCE4ED] shadow-sm hover:shadow-2xl hover:border-secondary/60 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden group reveal-up"
+              data-aos-delay="200">
+              <div>
+                <div class="w-full h-48 overflow-hidden relative">
+                  <img alt="Audit Compliance"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    src="img/service-audit-compliance.webp" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-navy-deep/30 via-transparent to-transparent"></div>
+                  <div class="absolute bottom-2.5 left-3">
+                    <span
+                      class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-white/95 text-primary text-[10px] uppercase tracking-wider shadow-sm font-semibold transition-colors duration-200 group-hover:bg-primary group-hover:text-surface-white">
+                      <span class="material-symbols-outlined text-[12px]">fact_check</span> Inspection Ready
+                    </span>
+                  </div>
+                </div>
+                <div class="p-5 sm:p-8 pb-space-sm">
+                  <h3
+                    class="font-headline-sm text-lg sm:text-headline-sm text-navy-deep mb-space-xs group-hover:text-primary transition-colors">
+                    2. Audit Compliance</h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+                    Practical preparation and support to help teams review documentation, address gaps, and strengthen
+                    inspection readiness.
+                  </p>
+                  <ul class="flex flex-col gap-space-xs mb-space-md text-on-surface">
+                    <li class="flex items-center gap-space-xs font-body-sm text-body-sm">
+                      <span
+                        class="material-symbols-outlined text-secondary text-[16px] transition-transform duration-200 group-hover:scale-110">check_circle</span>
+                      Audit readiness reviews &amp; mock inspections
+                    </li>
+                    <li class="flex items-center gap-space-xs font-body-sm text-body-sm">
+                      <span
+                        class="material-symbols-outlined text-secondary text-[16px] transition-transform duration-200 group-hover:scale-110">check_circle</span>
+                      Observer training and documentation triage
+                    </li>
+                    <li class="flex items-center gap-space-xs font-body-sm text-body-sm">
+                      <span
+                        class="material-symbols-outlined text-secondary text-[16px] transition-transform duration-200 group-hover:scale-110">check_circle</span>
+                      CAPA and observation closure support
+                    </li>
+                    <li class="flex items-center gap-space-xs font-body-sm text-body-sm">
+                      <span
+                        class="material-symbols-outlined text-secondary text-[16px] transition-transform duration-200 group-hover:scale-110">check_circle</span>
+                      Comprehensive GxP documentation review
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="px-5 pb-5 sm:px-8 sm:pb-8 pt-0">
+                <a class="inline-flex items-center gap-space-xs text-primary font-title-md text-title-md group-hover:text-secondary transition-colors"
+                  data-path="audit-compliance" href="#">
+                  <span class="group-hover:underline">Explore Audit Compliance</span>
+                  <span
+                    class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:translate-x-1.5">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+            <!-- Service 3: GAP Assessment -->
+            <div
+              class="rounded-2xl bg-surface-white border border-[#DCE4ED] shadow-sm hover:shadow-2xl hover:border-secondary/60 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden group reveal-up"
+              data-aos-delay="100">
+              <div>
+                <div class="w-full h-48 overflow-hidden relative">
+                  <img alt="GAP Assessment"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    src="img/service-gap-assessment.webp" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-navy-deep/30 via-transparent to-transparent"></div>
+                  <div class="absolute bottom-2.5 left-3">
+                    <span
+                      class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-white/95 text-primary text-[10px] uppercase tracking-wider shadow-sm font-semibold transition-colors duration-200 group-hover:bg-primary group-hover:text-surface-white">
+                      <span class="material-symbols-outlined text-[12px]">analytics</span> Risk Remediation
+                    </span>
+                  </div>
+                </div>
+                <div class="p-5 sm:p-8 pb-space-sm">
+                  <h3
+                    class="font-headline-sm text-lg sm:text-headline-sm text-navy-deep mb-space-xs group-hover:text-primary transition-colors">
+                    3. GAP Assessment</h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+                    Structured reviews to identify potential compliance gaps and help define clear, risk-aware
+                    remediation priorities.
+                  </p>
+                  <ul class="flex flex-col gap-space-xs mb-space-md text-on-surface">
+                    <li class="flex items-center gap-space-xs font-body-sm text-body-sm">
+                      <span
+                        class="material-symbols-outlined text-secondary text-[16px] transition-transform duration-200 group-hover:scale-110">check_circle</span>
+                      Current-state facility &amp; system assessment
+                    </li>
+                    <li class="flex items-center gap-space-xs font-body-sm text-body-sm">
+                      <span
+                        class="material-symbols-outlined text-secondary text-[16px] transition-transform duration-200 group-hover:scale-110">check_circle</span>
+                      Risk categorization &amp; gap documentation
+                    </li>
+                    <li class="flex items-center gap-space-xs font-body-sm text-body-sm">
+                      <span
+                        class="material-symbols-outlined text-secondary text-[16px] transition-transform duration-200 group-hover:scale-110">check_circle</span>
+                      Prioritized remediation roadmap
+                    </li>
+                    <li class="flex items-center gap-space-xs font-body-sm text-body-sm">
+                      <span
+                        class="material-symbols-outlined text-secondary text-[16px] transition-transform duration-200 group-hover:scale-110">check_circle</span>
+                      Post-remediation follow-up verification
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="px-5 pb-5 sm:px-8 sm:pb-8 pt-0">
+                <a class="inline-flex items-center gap-space-xs text-primary font-title-md text-title-md group-hover:text-secondary transition-colors"
+                  data-path="gap-assessment" href="#">
+                  <span class="group-hover:underline">Explore GAP Assessment</span>
+                  <span
+                    class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:translate-x-1.5">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+            <!-- Service 4: Validation Services -->
+            <div
+              class="rounded-2xl bg-surface-white border border-[#DCE4ED] shadow-sm hover:shadow-2xl hover:border-secondary/60 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden group reveal-up"
+              data-aos-delay="200">
+              <div>
+                <div class="w-full h-48 overflow-hidden relative">
+                  <img alt="Validation Services"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    src="img/service-validation-cqv.webp" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-navy-deep/30 via-transparent to-transparent"></div>
+                  <div class="absolute bottom-2.5 left-3">
+                    <span
+                      class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-white/95 text-primary text-[10px] uppercase tracking-wider shadow-sm font-semibold transition-colors duration-200 group-hover:bg-primary group-hover:text-surface-white">
+                      <span class="material-symbols-outlined text-[12px]">checklist_rtl</span> Full Lifecycle CQV
+                    </span>
+                  </div>
+                </div>
+                <div class="p-5 sm:p-8 pb-space-sm">
+                  <h3
+                    class="font-headline-sm text-lg sm:text-headline-sm text-navy-deep mb-space-xs group-hover:text-primary transition-colors">
+                    4. Validation Services</h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+                    Qualification and validation support for pharmaceutical equipment, utilities, processes,
+                    instruments, and computerized systems.
+                  </p>
+                  <ul class="flex flex-col gap-space-xs mb-space-md text-on-surface">
+                    <li class="flex items-center gap-space-xs font-body-sm text-body-sm">
+                      <span
+                        class="material-symbols-outlined text-secondary text-[16px] transition-transform duration-200 group-hover:scale-110">check_circle</span>
+                      Equipment qualification: DQ, IQ, OQ, PQ
+                    </li>
+                    <li class="flex items-center gap-space-xs font-body-sm text-body-sm">
+                      <span
+                        class="material-symbols-outlined text-secondary text-[16px] transition-transform duration-200 group-hover:scale-110">check_circle</span>
+                      PLC, SCADA &amp; computerized-system validation
+                    </li>
+                    <li class="flex items-center gap-space-xs font-body-sm text-body-sm">
+                      <span
+                        class="material-symbols-outlined text-secondary text-[16px] transition-transform duration-200 group-hover:scale-110">check_circle</span>
+                      Process, cleaning &amp; analytical validation
+                    </li>
+                    <li class="flex items-center gap-space-xs font-body-sm text-body-sm">
+                      <span
+                        class="material-symbols-outlined text-secondary text-[16px] transition-transform duration-200 group-hover:scale-110">check_circle</span>
+                      Calibration &amp; environmental mapping support
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="px-5 pb-5 sm:px-8 sm:pb-8 pt-0">
+                <a class="inline-flex items-center gap-space-xs text-primary font-title-md text-title-md group-hover:text-secondary transition-colors"
+                  data-path="validation-services" href="#">
+                  <span class="group-hover:underline">Explore Validation Services</span>
+                  <span
+                    class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:translate-x-1.5">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 3B: TECHNICAL EXCELLENCE & R&D FEATURE -->
+      <section class="w-full bg-surface-white py-space-xl lg:py-28 border-t border-[#DCE4ED]">
+        <div class="max-w-[1280px] mx-auto px-gutter">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            <!-- Left Content Column -->
+            <div class="lg:col-span-6 flex flex-col gap-6 reveal-up" data-aos-delay="100">
+              
+              <!-- Subtle Category Tag -->
+              <div
+                class="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-pale-blue text-primary border border-primary/10">
+                <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                <span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">TECHNICAL CAPABILITY SPOTLIGHT</span>
+              </div>
+
+              <!-- Refined Editorial Headline -->
+              <h2 class="font-headline-lg text-2xl sm:text-3xl lg:text-headline-lg text-navy-deep font-bold tracking-tight leading-snug sm:leading-[1.12]">
+                Turning engineering precision into streamlined facility operations.
+              </h2>
+
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                From qualification master planning through on-site execution of computerized systems, automated bioreactors, and cleanroom HVAC utilities, our multidisciplinary teams bridge vendor engineering with regulatory assurance.
+              </p>
+
+              <!-- 4 Sleek Feature Pill Cards (matching reference layout) -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                
+                <div
+                  class="flex items-center gap-3 p-3.5 rounded-2xl bg-surface border border-[#DCE4ED] hover:border-secondary/40 hover:bg-pale-blue/30 transition-all duration-200 group">
+                  <div
+                    class="w-9 h-9 rounded-xl bg-pale-blue text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-surface-white transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">verified_user</span>
+                  </div>
+                  <div class="min-w-0">
+                    <h4 class="font-title-md text-[14px] text-navy-deep font-semibold truncate">Commissioning & CQV</h4>
+                    <p class="font-body-sm text-[12px] text-on-surface-variant truncate">Traceable DQ, IQ, OQ & PQ</p>
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-center gap-3 p-3.5 rounded-2xl bg-surface border border-[#DCE4ED] hover:border-secondary/40 hover:bg-pale-blue/30 transition-all duration-200 group">
+                  <div
+                    class="w-9 h-9 rounded-xl bg-pale-blue text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-surface-white transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">tune</span>
+                  </div>
+                  <div class="min-w-0">
+                    <h4 class="font-title-md text-[14px] text-navy-deep font-semibold truncate">Automation & SCADA</h4>
+                    <p class="font-body-sm text-[12px] text-on-surface-variant truncate">GAMP 5 risk-based CSV/CSA</p>
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-center gap-3 p-3.5 rounded-2xl bg-surface border border-[#DCE4ED] hover:border-secondary/40 hover:bg-pale-blue/30 transition-all duration-200 group">
+                  <div
+                    class="w-9 h-9 rounded-xl bg-pale-blue text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-surface-white transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">history_edu</span>
+                  </div>
+                  <div class="min-w-0">
+                    <h4 class="font-title-md text-[14px] text-navy-deep font-semibold truncate">Audit-Ready Dossiers</h4>
+                    <p class="font-body-sm text-[12px] text-on-surface-variant truncate">FDA, EMA & WHO aligned</p>
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-center gap-3 p-3.5 rounded-2xl bg-surface border border-[#DCE4ED] hover:border-secondary/40 hover:bg-pale-blue/30 transition-all duration-200 group">
+                  <div
+                    class="w-9 h-9 rounded-xl bg-pale-blue text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-surface-white transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">speed</span>
+                  </div>
+                  <div class="min-w-0">
+                    <h4 class="font-title-md text-[14px] text-navy-deep font-semibold truncate">Accelerated Ramp-up</h4>
+                    <p class="font-body-sm text-[12px] text-on-surface-variant truncate">Zero unnecessary downtime</p>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- CTA Button -->
+              <div class="pt-2">
+                <a class="inline-flex items-center gap-2 bg-navy-deep hover:bg-primary text-on-primary font-title-md text-[14px] px-7 py-3.5 rounded-full shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+                  data-path="validation-services" href="#">
+                  <span>Explore Technical Methodologies</span>
+                  <span class="text-[16px]">→</span>
+                </a>
+              </div>
+
+            </div>
+
+            <!-- Right Visual Column (Tall Arched Framed Image) -->
+            <div class="lg:col-span-6 reveal-scale" data-aos-delay="200">
+              <div class="relative w-full aspect-[4/3] sm:aspect-[1.25] rounded-[32px] overflow-hidden shadow-2xl bg-surface-container-high border border-[#DCE4ED] group">
+                <img
+                  alt="Scientific research and qualification team in sterile cleanroom suits inspecting automated high-precision bioreactor vessel"
+                  class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  src="img/capability-automation-spotlight.webp" />
+                
+                <div class="absolute inset-0 bg-gradient-to-t from-navy-deep/40 via-transparent to-transparent"></div>
+                
+                <!-- Bottom Status Pill Overlay -->
+                <div
+                  class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 p-2.5 sm:p-space-sm bg-surface-white/95 backdrop-blur-md rounded-2xl border border-white/80 shadow-lg flex items-center justify-between text-navy-deep transition-transform duration-300 group-hover:-translate-y-1">
+                  <div class="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-pale-blue text-primary flex items-center justify-center shrink-0">
+                      <span class="material-symbols-outlined text-[16px] sm:text-[18px]">biotech</span>
+                    </div>
+                    <span class="font-title-md text-[12px] sm:text-[14px] font-semibold text-navy-deep truncate">Automated Bioreactor Qualification</span>
+                  </div>
+                  <span
+                    class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-pale-blue text-secondary font-label-sm text-[10px] sm:text-[11px] uppercase tracking-wider font-bold shrink-0">ISPE Compliant</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 4: DARK BRAND STATEMENT -->
+      <section class="w-full bg-navy-deep text-on-primary py-space-xl lg:py-28 relative overflow-hidden">
+        <!-- Fully Responsive Crisp Medical Heartbeat ECG Waveforms (Adapts from mobile to 4K desktop) -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-between">
+          <!-- Left ECG Flank -->
+          <div class="w-24 sm:w-36 md:w-56 lg:w-80 h-32 md:h-44 shrink-0">
+            <svg class="w-full h-full" viewBox="0 0 320 120" fill="none" preserveAspectRatio="none" shape-rendering="geometricPrecision">
+              <defs>
+                <linearGradient id="ecg-left-fade" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#50d7f5" stop-opacity="0" />
+                  <stop offset="25%" stop-color="#50d7f5" stop-opacity="0.85" />
+                  <stop offset="80%" stop-color="#50d7f5" stop-opacity="0.95" />
+                  <stop offset="100%" stop-color="#50d7f5" stop-opacity="0.25" />
+                </linearGradient>
+              </defs>
+              <line x1="0" y1="60" x2="320" y2="60" stroke="#50d7f5" stroke-opacity="0.15" stroke-width="1" stroke-dasharray="3 6" />
+              <path d="M 0 60 L 80 60 Q 98 52, 110 60 L 125 60 L 135 74 L 150 14 L 165 106 L 175 60 Q 200 40, 225 60 L 320 60"
+                stroke="url(#ecg-left-fade)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+              <circle cx="150" cy="14" r="3.5" fill="#50d7f5" />
+              <circle cx="150" cy="14" r="7" stroke="#50d7f5" stroke-opacity="0.4" stroke-width="1.5" />
+            </svg>
+          </div>
+
+          <!-- Faint Center Connecting Baseline (Subtle dashed line) -->
+          <div class="grow h-[1px] border-t border-dashed border-[#50d7f5]/15 hidden md:block opacity-40"></div>
+
+          <!-- Right ECG Flank -->
+          <div class="w-24 sm:w-36 md:w-56 lg:w-80 h-32 md:h-44 shrink-0">
+            <svg class="w-full h-full" viewBox="0 0 320 120" fill="none" preserveAspectRatio="none" shape-rendering="geometricPrecision">
+              <defs>
+                <linearGradient id="ecg-right-fade" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#50d7f5" stop-opacity="0.25" />
+                  <stop offset="25%" stop-color="#50d7f5" stop-opacity="0.95" />
+                  <stop offset="80%" stop-color="#50d7f5" stop-opacity="0.85" />
+                  <stop offset="100%" stop-color="#50d7f5" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+              <line x1="0" y1="60" x2="320" y2="60" stroke="#50d7f5" stroke-opacity="0.15" stroke-width="1" stroke-dasharray="3 6" />
+              <path d="M 0 60 L 95 60 Q 120 40, 145 60 L 155 106 L 170 14 L 185 74 L 195 60 L 210 60 Q 222 52, 240 60 L 320 60"
+                stroke="url(#ecg-right-fade)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+              <circle cx="170" cy="14" r="3.5" fill="#50d7f5" />
+              <circle cx="170" cy="14" r="7" stroke="#50d7f5" stroke-opacity="0.4" stroke-width="1.5" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Foreground Content: High contrast, distinct text colors, responsive typography -->
+        <div class="max-w-[880px] mx-auto px-gutter text-center relative z-10 flex flex-col items-center gap-4 sm:gap-space-md reveal-up">
+          
+          <!-- Category Pill Badge -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-secondary-container/15 text-secondary-container font-label-sm text-xs sm:text-label-sm border border-secondary-container/30 backdrop-blur-sm">
+            <span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+            UNCOMPROMISING RIGOR
+          </div>
+
+          <!-- Pure Bright White Headline (Crisp, Responsive) -->
+          <h2 class="font-headline-xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white font-bold tracking-tight">
+            When Quality Matters.
+          </h2>
+
+          <!-- Differentiated Cool Slate Subtitle -->
+          <p class="font-body-lg text-slate-300 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed font-normal">
+            Quality, patient safety, and data integrity should guide every system, document, and validation activity.
+          </p>
+
+          <!-- Pill CTA Button -->
+          <div class="pt-1 sm:pt-space-xs flex items-center gap-space-md">
+            <a class="bg-secondary-container text-navy-deep font-title-md text-sm sm:text-title-md px-6 sm:px-8 py-3 sm:py-3.5 rounded-full hover:bg-white hover:text-navy-deep hover:shadow-[0_0_24px_rgba(90,223,253,0.35)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 shadow-md font-semibold"
+              data-path="request-a-consultation" href="#">
+              Initiate Review
+            </a>
+          </div>
+
+        </div>
+      </section>
+      <!-- SECTION 5: HOW PRIEL WORKS -->
+      <section class="w-full bg-surface-white py-space-xl lg:py-24">
+        <div class="max-w-[1280px] mx-auto px-gutter">
+          <div class="text-center max-w-2xl mx-auto mb-space-lg md:mb-space-xl flex flex-col gap-space-xs reveal-up">
+            <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-semibold">A CLEAR,
+              COLLABORATIVE PROCESS</span>
+            <h2 class="font-headline-lg text-2xl sm:text-3xl lg:text-headline-lg text-navy-deep">From first assessment to practical
+              implementation.</h2>
+            <p class="font-body-md text-sm sm:text-body-md text-on-surface-variant">
+              A predictable four-stage workflow ensuring no compliance requirements are overlooked.
+            </p>
+          </div>
+          <!-- Alternating Zigzag Timeline (Vice Versa: Left / Right on ALL Screen Widths) -->
+          <div class="relative max-w-4xl mx-auto flex flex-col gap-6 md:gap-10">
+            <!-- Center Vertical Guide Line (Tablet & Desktop) -->
+            <div class="hidden md:block absolute left-1/2 top-8 bottom-8 w-[2px] -translate-x-1/2 bg-gradient-to-b from-secondary/40 via-primary/30 to-secondary/40"></div>
+
+            <!-- ROW 1: Box on LEFT (on Mobile w-[88%] self-start; on Desktop w-1/2 left) -->
+            <div class="relative flex flex-col md:flex-row items-stretch md:items-center w-full reveal-up" data-aos-delay="100">
+              <!-- Left Column: Card 01 -->
+              <div class="w-[88%] sm:w-[84%] md:w-1/2 self-start md:self-auto md:pr-8 lg:pr-10">
+                <div class="flex flex-col gap-3 bg-surface rounded-2xl p-5 sm:p-6 lg:p-8 border border-[#DCE4ED] hover:border-secondary/60 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group shadow-sm">
+                  <div class="flex items-center justify-between">
+                    <span class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-pale-blue text-primary font-bold text-xs tracking-wider group-hover:bg-primary group-hover:text-white transition-colors">STAGE 01</span>
+                    <span class="font-headline-sm text-2xl font-extrabold text-secondary/40 group-hover:text-secondary transition-colors">01</span>
+                  </div>
+                  <h3 class="font-title-lg text-lg sm:text-xl md:text-2xl text-navy-deep font-bold group-hover:text-primary transition-colors">Understand</h3>
+                  <p class="font-body-sm text-xs sm:text-sm md:text-base text-on-surface-variant leading-relaxed">
+                    Review project goals, facility context, operational systems, and applicable compliance frameworks.
+                  </p>
+                </div>
+              </div>
+              <!-- Center Node (Tablet & Desktop) -->
+              <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white border-2 border-secondary items-center justify-center font-bold text-xs text-primary shadow-md z-10">
+                01
+              </div>
+              <!-- Right Spacer -->
+              <div class="hidden md:block w-1/2 md:pl-8 lg:pl-10"></div>
+            </div>
+
+            <!-- ROW 2: Box on RIGHT (Vice Versa on Mobile w-[88%] self-end; on Desktop w-1/2 right) -->
+            <div class="relative flex flex-col md:flex-row items-stretch md:items-center w-full reveal-up" data-aos-delay="200">
+              <!-- Left Spacer -->
+              <div class="hidden md:block w-1/2 md:pr-8 lg:pr-10"></div>
+              <!-- Center Node (Tablet & Desktop) -->
+              <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white border-2 border-secondary items-center justify-center font-bold text-xs text-primary shadow-md z-10">
+                02
+              </div>
+              <!-- Right Column: Card 02 (Placed on Right Side) -->
+              <div class="w-[88%] sm:w-[84%] md:w-1/2 self-end md:self-auto md:pl-8 lg:pl-10">
+                <div class="flex flex-col gap-3 bg-surface rounded-2xl p-5 sm:p-6 lg:p-8 border border-[#DCE4ED] hover:border-secondary/60 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group shadow-sm">
+                  <div class="flex items-center justify-between">
+                    <span class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-pale-blue text-primary font-bold text-xs tracking-wider group-hover:bg-primary group-hover:text-white transition-colors">STAGE 02</span>
+                    <span class="font-headline-sm text-2xl font-extrabold text-secondary/40 group-hover:text-secondary transition-colors">02</span>
+                  </div>
+                  <h3 class="font-title-lg text-lg sm:text-xl md:text-2xl text-navy-deep font-bold group-hover:text-primary transition-colors">Assess</h3>
+                  <p class="font-body-sm text-xs sm:text-sm md:text-base text-on-surface-variant leading-relaxed">
+                    Identify full scope, risk profiles, regulatory dependencies, and critical documentation requirements.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ROW 3: Box on LEFT -->
+            <div class="relative flex flex-col md:flex-row items-stretch md:items-center w-full reveal-up" data-aos-delay="300">
+              <!-- Left Column: Card 03 -->
+              <div class="w-[88%] sm:w-[84%] md:w-1/2 self-start md:self-auto md:pr-8 lg:pr-10">
+                <div class="flex flex-col gap-3 bg-surface rounded-2xl p-5 sm:p-6 lg:p-8 border border-[#DCE4ED] hover:border-secondary/60 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group shadow-sm">
+                  <div class="flex items-center justify-between">
+                    <span class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-pale-blue text-primary font-bold text-xs tracking-wider group-hover:bg-primary group-hover:text-white transition-colors">STAGE 03</span>
+                    <span class="font-headline-sm text-2xl font-extrabold text-secondary/40 group-hover:text-secondary transition-colors">03</span>
+                  </div>
+                  <h3 class="font-title-lg text-lg sm:text-xl md:text-2xl text-navy-deep font-bold group-hover:text-primary transition-colors">Execute</h3>
+                  <p class="font-body-sm text-xs sm:text-sm md:text-base text-on-surface-variant leading-relaxed">
+                    Coordinate agreed qualification, technical validation, on-site testing, and compliance activities.
+                  </p>
+                </div>
+              </div>
+              <!-- Center Node (Tablet & Desktop) -->
+              <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white border-2 border-secondary items-center justify-center font-bold text-xs text-primary shadow-md z-10">
+                03
+              </div>
+              <!-- Right Spacer -->
+              <div class="hidden md:block w-1/2 md:pl-8 lg:pl-10"></div>
+            </div>
+
+            <!-- ROW 4: Box on RIGHT (Vice Versa) -->
+            <div class="relative flex flex-col md:flex-row items-stretch md:items-center w-full reveal-up" data-aos-delay="400">
+              <!-- Left Spacer -->
+              <div class="hidden md:block w-1/2 md:pr-8 lg:pr-10"></div>
+              <!-- Center Node (Tablet & Desktop) -->
+              <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white border-2 border-secondary items-center justify-center font-bold text-xs text-primary shadow-md z-10">
+                04
+              </div>
+              <!-- Right Column: Card 04 (Placed on Right Side) -->
+              <div class="w-[88%] sm:w-[84%] md:w-1/2 self-end md:self-auto md:pl-8 lg:pl-10">
+                <div class="flex flex-col gap-3 bg-surface rounded-2xl p-5 sm:p-6 lg:p-8 border border-[#DCE4ED] hover:border-secondary/60 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group shadow-sm">
+                  <div class="flex items-center justify-between">
+                    <span class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-pale-blue text-primary font-bold text-xs tracking-wider group-hover:bg-primary group-hover:text-white transition-colors">STAGE 04</span>
+                    <span class="font-headline-sm text-2xl font-extrabold text-secondary/40 group-hover:text-secondary transition-colors">04</span>
+                  </div>
+                  <h3 class="font-title-lg text-lg sm:text-xl md:text-2xl text-navy-deep font-bold group-hover:text-primary transition-colors">Support</h3>
+                  <p class="font-body-sm text-xs sm:text-sm md:text-base text-on-surface-variant leading-relaxed">
+                    Help organize final deliverables, follow-up remediation actions, and ongoing lifecycle maintenance.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 6: EXPERTISE & SERVICE CAPABILITIES -->
+      <section class="w-full bg-surface py-space-xl lg:py-24">
+        <div class="max-w-[1280px] mx-auto px-gutter">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-xl reveal-up">
+            <div class="flex flex-col gap-space-xs max-w-xl">
+              <span
+                class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-semibold">CAPABILITIES
+                CATALOG</span>
+              <h2 class="font-headline-lg text-2xl sm:text-3xl lg:text-headline-lg text-navy-deep font-bold tracking-tight">Specialist support across critical quality
+                systems.</h2>
+            </div>
+            <a class="text-primary font-title-md text-title-md hover:text-secondary transition-colors flex items-center gap-1 group"
+              data-path="services" href="#">
+              <span class="group-hover:underline">Full Capabilities Matrix</span> <span
+                class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:translate-x-1">arrow_forward</span>
+            </a>
+          </div>
+          <!-- 7 Capability Cards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+            <div
+              class="p-space-lg rounded-2xl bg-surface-white border border-[#DCE4ED] hover:border-secondary/60 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col gap-space-xs shadow-sm group reveal-up"
+              data-aos-delay="100">
+              <div
+                class="w-10 h-10 rounded-lg bg-pale-blue text-primary flex items-center justify-center mb-space-xs group-hover:bg-primary group-hover:text-surface-white transition-all duration-300 group-hover:scale-105">
+                <span class="material-symbols-outlined text-[20px]">precision_manufacturing</span>
+              </div>
+              <h3 class="font-title-lg text-title-lg text-navy-deep group-hover:text-primary transition-colors">
+                Equipment &amp; Instrument Qualification</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Design, Installation, Operational, and
+                Performance Qualification (DQ/IQ/OQ/PQ) execution.</p>
+            </div>
+            <div
+              class="p-space-lg rounded-2xl bg-surface-white border border-[#DCE4ED] hover:border-secondary/60 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col gap-space-xs shadow-sm group reveal-up"
+              data-aos-delay="150">
+              <div
+                class="w-10 h-10 rounded-lg bg-pale-blue text-primary flex items-center justify-center mb-space-xs group-hover:bg-primary group-hover:text-surface-white transition-all duration-300 group-hover:scale-105">
+                <span class="material-symbols-outlined text-[20px]">verified_user</span>
+              </div>
+              <h3 class="font-title-lg text-title-lg text-navy-deep group-hover:text-primary transition-colors">Quality
+                Management Systems (QMS)</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Developing compliant SOP hierarchies,
+                deviation management, and proactive change-control systems.</p>
+            </div>
+            <div
+              class="p-space-lg rounded-2xl bg-surface-white border border-[#DCE4ED] hover:border-secondary/60 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col gap-space-xs shadow-sm group reveal-up"
+              data-aos-delay="200">
+              <div
+                class="w-10 h-10 rounded-lg bg-pale-blue text-primary flex items-center justify-center mb-space-xs group-hover:bg-primary group-hover:text-surface-white transition-all duration-300 group-hover:scale-105">
+                <span class="material-symbols-outlined text-[20px]">terminal</span>
+              </div>
+              <h3 class="font-title-lg text-title-lg text-navy-deep group-hover:text-primary transition-colors">CSV
+                &amp; Computer Software Assurance (CSA)</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">21 CFR Part 11 &amp; GAMP 5 computerized
+                system validation and software risk controls.</p>
+            </div>
+            <div
+              class="p-space-lg rounded-2xl bg-surface-white border border-[#DCE4ED] hover:border-secondary/60 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col gap-space-xs shadow-sm group reveal-up"
+              data-aos-delay="250">
+              <div
+                class="w-10 h-10 rounded-lg bg-pale-blue text-primary flex items-center justify-center mb-space-xs group-hover:bg-primary group-hover:text-surface-white transition-all duration-300 group-hover:scale-105">
+                <span class="material-symbols-outlined text-[20px]">science</span>
+              </div>
+              <h3 class="font-title-lg text-title-lg text-navy-deep group-hover:text-primary transition-colors">Process
+                &amp; Cleaning Validation</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Comprehensive protocol design, residual limit
+                calculations, and analytical method verification.</p>
+            </div>
+            <div
+              class="p-space-lg rounded-2xl bg-surface-white border border-[#DCE4ED] hover:border-secondary/60 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col gap-space-xs shadow-sm group reveal-up"
+              data-aos-delay="300">
+              <div
+                class="w-10 h-10 rounded-lg bg-pale-blue text-primary flex items-center justify-center mb-space-xs group-hover:bg-primary group-hover:text-surface-white transition-all duration-300 group-hover:scale-105">
+                <span class="material-symbols-outlined text-[20px]">thermostat</span>
+              </div>
+              <h3 class="font-title-lg text-title-lg text-navy-deep group-hover:text-primary transition-colors">
+                Calibration &amp; Thermal Mapping</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Warehouse, cold chain, autoclave, and
+                cleanroom temperature and RH environmental mapping.</p>
+            </div>
+            <div
+              class="p-space-lg rounded-2xl bg-surface-white border border-[#DCE4ED] hover:border-secondary/60 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col gap-space-xs shadow-sm group reveal-up"
+              data-aos-delay="350">
+              <div
+                class="w-10 h-10 rounded-lg bg-pale-blue text-primary flex items-center justify-center mb-space-xs group-hover:bg-primary group-hover:text-surface-white transition-all duration-300 group-hover:scale-105">
+                <span class="material-symbols-outlined text-[20px]">gavel</span>
+              </div>
+              <h3 class="font-title-lg text-title-lg text-navy-deep group-hover:text-primary transition-colors">Audit
+                Readiness &amp; Regulatory Support</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Preparing facility and quality personnel for
+                US FDA, EMA, WHO, and local inspectorate audits.</p>
+            </div>
+            <div
+              class="p-space-lg rounded-2xl bg-surface-white border border-[#DCE4ED] hover:border-secondary/60 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col gap-space-xs shadow-sm lg:col-span-3 group reveal-up"
+              data-aos-delay="400">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+                <div>
+                  <h3 class="font-title-lg text-title-lg text-navy-deep group-hover:text-primary transition-colors">
+                    Project Management &amp; Lifecycle Compliance</h3>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">Cross-functional technical leadership
+                    linking vendors, engineering teams, and regulatory stakeholders.</p>
+                </div>
+                <a class="shrink-0 inline-flex items-center gap-space-xs text-primary font-title-md text-title-md group-hover:text-secondary transition-colors"
+                  data-path="request-a-consultation" href="#">
+                  <span class="group-hover:underline">Inquire about Scope</span> <span
+                    class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:translate-x-1.5">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 7: INDUSTRIES SERVED WITH ARCHITECTURAL FACILITY BANNER -->
+      <section class="w-full bg-surface-white py-space-xl lg:py-24">
+        <div class="max-w-[1280px] mx-auto px-gutter">
+          <div class="text-center max-w-2xl mx-auto mb-space-xl flex flex-col gap-space-xs reveal-up">
+            <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-semibold">TARGET
+              VERTICALS</span>
+            <h2 class="font-headline-lg text-2xl sm:text-3xl lg:text-headline-lg text-navy-deep font-bold tracking-tight">Built for pharmaceutical and life-sciences
+              environments.</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Tailored regulatory and validation workflows across regulated sectors.
+            </p>
+          </div>
+          <!-- Architectural Facility Anchor Banner -->
+          <div
+            class="w-full mb-space-xl rounded-2xl sm:rounded-3xl overflow-hidden border border-[#DCE4ED] shadow-lg relative bg-navy-deep reveal-scale group"
+            data-aos-delay="100">
+            <div class="relative min-h-[320px] sm:min-h-[340px] md:h-96 w-full flex items-center overflow-hidden">
+              <img
+                alt="Modern pharmaceutical manufacturing facility cleanroom corridor with stainless steel piping and automated sterile packaging line"
+                class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                src="img/cleanroom-facility-banner.webp" />
+              <div class="absolute inset-0 bg-gradient-to-r from-navy-deep/95 via-navy-deep/80 sm:via-navy-deep/55 to-navy-deep/25 sm:to-transparent"></div>
+              <div class="relative z-10 p-5 sm:p-10 md:p-12 flex flex-col justify-center max-w-xl text-on-primary">
+                <span
+                  class="font-label-sm text-[11px] sm:text-label-sm uppercase tracking-widest text-secondary-container font-semibold mb-1.5 sm:mb-2">INFRASTRUCTURE
+                  EXCELLENCE</span>
+                <h3 class="font-headline-md text-lg sm:text-2xl md:text-headline-md font-bold text-on-primary mb-2 sm:mb-space-xs leading-snug">Pristine Cleanroom
+                  &amp; Automated Line Commissioning</h3>
+                <p class="font-body-sm text-xs sm:text-body-sm text-secondary-fixed/90 leading-relaxed mb-3.5 sm:mb-space-md max-w-lg">
+                  Comprehensive qualification covering ISO 5 to ISO 8 cleanroom envelopes, sterile filling, and
+                  automated packaging lines to ensure seamless regulatory licensure.
+                </p>
+                <div class="flex flex-wrap items-center gap-1.5 sm:gap-space-sm">
+                  <span
+                    class="px-2.5 py-1 rounded bg-white/20 backdrop-blur-sm text-on-primary text-[10px] sm:text-label-sm border border-white/10 hover:bg-white/30 transition-colors">ISO
+                    14644</span>
+                  <span
+                    class="px-2.5 py-1 rounded bg-white/20 backdrop-blur-sm text-on-primary text-[10px] sm:text-label-sm border border-white/10 hover:bg-white/30 transition-colors">EU
+                    GMP Annex 1</span>
+                  <span
+                    class="px-2.5 py-1 rounded bg-white/20 backdrop-blur-sm text-on-primary text-[10px] sm:text-label-sm border border-white/10 hover:bg-white/30 transition-colors">CFR
+                    211</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+            <div
+              class="p-space-lg rounded-2xl bg-surface border border-[#DCE4ED] hover:bg-pale-blue/30 hover:border-secondary/40 hover:-translate-y-1 hover:shadow-md transition-all duration-300 group reveal-up"
+              data-aos-delay="100">
+              <div
+                class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-space-sm group-hover:scale-110 group-hover:bg-primary group-hover:text-surface-white transition-all duration-300">
+                <span class="material-symbols-outlined text-[20px]">medication</span>
+              </div>
+              <h3
+                class="font-title-lg text-title-lg text-navy-deep mb-space-xs group-hover:text-primary transition-colors">
+                Pharmaceutical Manufacturing</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Solid oral dosage, sterile injectables,
+                liquids, and topical manufacturing lines.</p>
+            </div>
+            <div
+              class="p-space-lg rounded-2xl bg-surface border border-[#DCE4ED] hover:bg-pale-blue/30 hover:border-secondary/40 hover:-translate-y-1 hover:shadow-md transition-all duration-300 group reveal-up"
+              data-aos-delay="150">
+              <div
+                class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-space-sm group-hover:scale-110 group-hover:bg-primary group-hover:text-surface-white transition-all duration-300">
+                <span class="material-symbols-outlined text-[20px]">science</span>
+              </div>
+              <h3
+                class="font-title-lg text-title-lg text-navy-deep mb-space-xs group-hover:text-primary transition-colors">
+                API Manufacturing</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Bulk active ingredient plants, chemical
+                synthesis, and intermediate handling facilities.</p>
+            </div>
+            <div
+              class="p-space-lg rounded-2xl bg-surface border border-[#DCE4ED] hover:bg-pale-blue/30 hover:border-secondary/40 hover:-translate-y-1 hover:shadow-md transition-all duration-300 group reveal-up"
+              data-aos-delay="200">
+              <div
+                class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-space-sm group-hover:scale-110 group-hover:bg-primary group-hover:text-surface-white transition-all duration-300">
+                <span class="material-symbols-outlined text-[20px]">biotech</span>
+              </div>
+              <h3
+                class="font-title-lg text-title-lg text-navy-deep mb-space-xs group-hover:text-primary transition-colors">
+                Biotechnology Companies</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Biologics, fermentation, monoclonal
+                antibodies, and cell &amp; gene therapy suites.</p>
+            </div>
+            <div
+              class="p-space-lg rounded-2xl bg-surface border border-[#DCE4ED] hover:bg-pale-blue/30 hover:border-secondary/40 hover:-translate-y-1 hover:shadow-md transition-all duration-300 group reveal-up"
+              data-aos-delay="250">
+              <div
+                class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-space-sm group-hover:scale-110 group-hover:bg-primary group-hover:text-surface-white transition-all duration-300">
+                <span class="material-symbols-outlined text-[20px]">analytics</span>
+              </div>
+              <h3
+                class="font-title-lg text-title-lg text-navy-deep mb-space-xs group-hover:text-primary transition-colors">
+                Testing &amp; Analytical Labs</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">GLP-compliant quality control facilities,
+                stability chambers, and instrumentation labs.</p>
+            </div>
+            <div
+              class="p-space-lg rounded-2xl bg-surface border border-[#DCE4ED] hover:bg-pale-blue/30 hover:border-secondary/40 hover:-translate-y-1 hover:shadow-md transition-all duration-300 group reveal-up"
+              data-aos-delay="300">
+              <div
+                class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-space-sm group-hover:scale-110 group-hover:bg-primary group-hover:text-surface-white transition-all duration-300">
+                <span class="material-symbols-outlined text-[20px]">factory</span>
+              </div>
+              <h3
+                class="font-title-lg text-title-lg text-navy-deep mb-space-xs group-hover:text-primary transition-colors">
+                Contract Manufacturers (CMOs)</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Multi-product contract sites requiring
+                stringent cross-contamination and turnaround validations.</p>
+            </div>
+            <div
+              class="p-space-lg rounded-2xl bg-surface border border-[#DCE4ED] hover:bg-pale-blue/30 hover:border-secondary/40 hover:-translate-y-1 hover:shadow-md transition-all duration-300 group reveal-up"
+              data-aos-delay="350">
+              <div
+                class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-space-sm group-hover:scale-110 group-hover:bg-primary group-hover:text-surface-white transition-all duration-300">
+                <span class="material-symbols-outlined text-[20px]">medical_services</span>
+              </div>
+              <h3
+                class="font-title-lg text-title-lg text-navy-deep mb-space-xs group-hover:text-primary transition-colors">
+                Allied Life-Sciences</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Medical device assembly, nutraceutical
+                processing, and clinical packaging operations.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 8: WHY CHOOSE PRIEL (WITH COMPLIANCE AUDITOR PHOTOGRAPHY) -->
+      <section class="w-full bg-surface py-space-xl lg:py-24">
+        <div class="max-w-[1280px] mx-auto px-gutter">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+            <div class="lg:col-span-6 flex flex-col gap-space-md reveal-up" data-aos-delay="100">
+              <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-semibold">THE PRIEL
+                ADVANTAGE</span>
+              <h2 class="font-headline-lg text-2xl sm:text-3xl lg:text-headline-lg text-navy-deep font-bold tracking-tight leading-tight">
+                Technical understanding. Practical execution.
+              </h2>
+              <div class="flex flex-col gap-space-md pt-space-xs">
+                <div
+                  class="flex items-start gap-space-sm p-2 rounded-xl hover:bg-pale-blue/40 transition-colors duration-200">
+                  <span class="material-symbols-outlined text-secondary text-[24px] mt-0.5">verified</span>
+                  <div>
+                    <h4 class="font-title-md text-title-md text-navy-deep">Experienced quality and validation focus</h4>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">Hands-on experience across
+                      qualification, system validation, and GMP-related activities.</p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-start gap-space-sm p-2 rounded-xl hover:bg-pale-blue/40 transition-colors duration-200">
+                  <span class="material-symbols-outlined text-secondary text-[24px] mt-0.5">verified</span>
+                  <div>
+                    <h4 class="font-title-md text-title-md text-navy-deep">Regulatory-conscious documentation</h4>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">Deliverables authored and organized
+                      around international expectations (FDA, WHO, PIC/S).</p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-start gap-space-sm p-2 rounded-xl hover:bg-pale-blue/40 transition-colors duration-200">
+                  <span class="material-symbols-outlined text-secondary text-[24px] mt-0.5">verified</span>
+                  <div>
+                    <h4 class="font-title-md text-title-md text-navy-deep">Integrated project support</h4>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">Bridging engineering milestones,
+                      equipment suppliers, and quality assurance seamlessly.</p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-start gap-space-sm p-2 rounded-xl hover:bg-pale-blue/40 transition-colors duration-200">
+                  <span class="material-symbols-outlined text-secondary text-[24px] mt-0.5">verified</span>
+                  <div>
+                    <h4 class="font-title-md text-title-md text-navy-deep">Practical, tailored approach</h4>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">Shaping validation scopes around each
+                      client's specific facility constraints, budget, and timeline.</p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-start gap-space-sm p-2 rounded-xl hover:bg-pale-blue/40 transition-colors duration-200">
+                  <span class="material-symbols-outlined text-secondary text-[24px] mt-0.5">verified</span>
+                  <div>
+                    <h4 class="font-title-md text-title-md text-navy-deep">Quality-led mindset</h4>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">Upholding patient safety, product
+                      excellence, and data integrity in every document produced.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Right Combined Photographic & Summary Card -->
+            <div class="lg:col-span-6 reveal-scale" data-aos-delay="200">
+              <div class="grid grid-cols-1 sm:grid-cols-12 gap-space-md items-stretch">
+                <!-- Auditor Human Image -->
+                <div
+                  class="sm:col-span-5 rounded-2xl overflow-hidden shadow-lg border border-[#DCE4ED] min-h-[300px] sm:min-h-0 bg-surface-white group">
+                  <img
+                    alt="Professional pharmaceutical compliance specialist auditor in smart business attire and lab coat holding clipboard reviewing validation documentation"
+                    class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    src="img/auditor-compliance-specialist.webp" />
+                </div>
+                <!-- Summary Card Box -->
+                <div
+                  class="sm:col-span-7 p-space-lg rounded-2xl bg-surface-white border border-[#DCE4ED] shadow-xl flex flex-col justify-between gap-space-md hover:border-secondary/50 transition-all duration-300">
+                  <div>
+                    <div class="flex items-center gap-space-sm pb-space-sm border-b border-surface-container">
+                      <div
+                        class="w-10 h-10 rounded-xl bg-pale-blue text-primary flex items-center justify-center font-bold shadow-sm">
+                        <span class="material-symbols-outlined text-[24px]">verified</span>
+                      </div>
+                      <div>
+                        <h4 class="font-title-lg text-title-lg text-navy-deep">Audit-Ready Engineering</h4>
+                        <span class="font-body-sm text-body-sm text-on-surface-variant">Standardized Protocols &amp;
+                          Execution</span>
+                      </div>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed pt-space-xs">
+                      We eliminate ambiguity from commissioning, qualification, and validation (CQV). Our consultants
+                      pair deep engineering fluency with strict compliance discipline, ensuring documentation passes
+                      regulatory scrutiny without bottlenecks.
+                    </p>
+                  </div>
+                  <div class="bg-surface p-space-sm rounded-xl flex flex-col gap-space-xs border border-[#DCE4ED]/60">
+                    <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Core
+                      Deliverable Standards</span>
+                    <div class="flex flex-wrap gap-1.5 pt-0.5">
+                      <span
+                        class="px-2 py-0.5 rounded bg-surface-white text-navy-deep font-body-sm text-body-sm shadow-sm border border-[#DCE4ED]/50 hover:bg-pale-blue hover:text-primary transition-colors cursor-default">GAMP
+                        5</span>
+                      <span
+                        class="px-2 py-0.5 rounded bg-surface-white text-navy-deep font-body-sm text-body-sm shadow-sm border border-[#DCE4ED]/50 hover:bg-pale-blue hover:text-primary transition-colors cursor-default">ISPE</span>
+                      <span
+                        class="px-2 py-0.5 rounded bg-surface-white text-navy-deep font-body-sm text-body-sm shadow-sm border border-[#DCE4ED]/50 hover:bg-pale-blue hover:text-primary transition-colors cursor-default">21
+                        CFR Part 11</span>
+                      <span
+                        class="px-2 py-0.5 rounded bg-surface-white text-navy-deep font-body-sm text-body-sm shadow-sm border border-[#DCE4ED]/50 hover:bg-pale-blue hover:text-primary transition-colors cursor-default">ALCOA+</span>
+                    </div>
+                  </div>
+                  <div>
+                    <a class="inline-flex items-center justify-center w-full bg-primary-container text-on-primary font-title-md text-title-md py-space-sm rounded-lg hover:bg-navy-deep hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+                      data-path="request-a-consultation" href="#">
+                      Speak With an Expert
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 9: INSIGHTS / KNOWLEDGE SHARING -->
+      <section class="w-full bg-surface-white py-space-xl lg:py-24">
+        <div class="max-w-[1280px] mx-auto px-gutter">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-xl reveal-up">
+            <div class="flex flex-col gap-space-xs max-w-xl">
+              <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-semibold">KNOWLEDGE
+                BASE</span>
+              <h2 class="font-headline-lg text-2xl sm:text-3xl lg:text-headline-lg text-navy-deep font-bold tracking-tight leading-tight">Ideas for stronger quality systems.</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant">
+                Technical guidance and practical notes on compliance challenges.
+              </p>
+            </div>
+            <a class="text-primary font-title-md text-title-md hover:text-secondary transition-colors flex items-center gap-1 group"
+              data-path="insights" href="#">
+              <span class="group-hover:underline">View All Insights</span> <span
+                class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:translate-x-1.5">arrow_forward</span>
+            </a>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+            <!-- Article 1 -->
+            <article
+              class="rounded-2xl bg-surface border border-[#DCE4ED] flex flex-col justify-between overflow-hidden hover:shadow-2xl hover:border-secondary/50 hover:-translate-y-1.5 transition-all duration-300 group reveal-up"
+              data-aos-delay="100">
+              <div>
+                <div class="w-full h-48 overflow-hidden bg-surface-container-high relative">
+                  <img
+                    alt="Two pharmaceutical compliance consultants reviewing validation documents and quality audit reports"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    src="img/about-compliance-review.webp" />
+                  <div class="absolute top-3 left-3">
+                    <span
+                      class="inline-block px-space-sm py-0.5 rounded-full bg-surface-white/95 text-primary font-label-sm text-label-sm uppercase tracking-wider shadow-sm font-semibold transition-colors duration-200 group-hover:bg-primary group-hover:text-surface-white">Regulatory</span>
+                  </div>
+                </div>
+                <div class="p-4 sm:p-5">
+                  <h3
+                    class="font-title-lg text-lg sm:text-title-lg text-navy-deep mb-2 group-hover:text-primary transition-colors leading-snug">
+                    Preparing Documentation for a Pharmaceutical Audit
+                  </h3>
+                  <p class="font-body-sm text-sm text-on-surface-variant mb-2 leading-relaxed">
+                    A checklist of critical master records, deviation logs, and validation summaries required during
+                    inspectorate reviews.
+                  </p>
+                </div>
+              </div>
+              <div class="px-4 pb-4 pt-0 sm:px-5 sm:pb-5">
+                <a class="inline-flex items-center gap-1.5 text-primary font-title-md text-sm sm:text-base group-hover:text-secondary transition-colors font-semibold"
+                  data-path="insights" href="#">
+                  <span class="group-hover:underline">Read Insight</span> <span
+                    class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:translate-x-1.5 shrink-0">arrow_forward</span>
+                </a>
+              </div>
+            </article>
+            <!-- Article 2 -->
+            <article
+              class="rounded-2xl bg-surface border border-[#DCE4ED] flex flex-col justify-between overflow-hidden hover:shadow-2xl hover:border-secondary/50 hover:-translate-y-1.5 transition-all duration-300 group reveal-up"
+              data-aos-delay="200">
+              <div>
+                <div class="w-full h-48 overflow-hidden bg-surface-container-high relative">
+                  <img
+                    alt="Close-up high-end editorial pharmaceutical laboratory still life with glass petri dishes, micropipette, and sterile vials"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    src="img/article-qualification-stages.webp" />
+                  <div class="absolute top-3 left-3">
+                    <span
+                      class="inline-block px-space-sm py-0.5 rounded-full bg-surface-white/95 text-primary font-label-sm text-label-sm uppercase tracking-wider shadow-sm font-semibold transition-colors duration-200 group-hover:bg-primary group-hover:text-surface-white">Validation</span>
+                  </div>
+                </div>
+                <div class="p-4 sm:p-5">
+                  <h3
+                    class="font-title-lg text-lg sm:text-title-lg text-navy-deep mb-2 group-hover:text-primary transition-colors leading-snug">
+                    Understanding DQ, IQ, OQ and PQ in Modern Facilities
+                  </h3>
+                  <p class="font-body-sm text-sm text-on-surface-variant mb-2 leading-relaxed">
+                    Demystifying the stage gates of qualification for high-speed automated packaging and sterile
+                    processing utilities.
+                  </p>
+                </div>
+              </div>
+              <div class="px-4 pb-4 pt-0 sm:px-5 sm:pb-5">
+                <a class="inline-flex items-center gap-1.5 text-primary font-title-md text-sm sm:text-base group-hover:text-secondary transition-colors font-semibold"
+                  data-path="insights" href="#">
+                  <span class="group-hover:underline">Read Insight</span> <span
+                    class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:translate-x-1.5 shrink-0">arrow_forward</span>
+                </a>
+              </div>
+            </article>
+            <!-- Article 3 -->
+            <article
+              class="rounded-2xl bg-surface border border-[#DCE4ED] flex flex-col justify-between overflow-hidden hover:shadow-2xl hover:border-secondary/50 hover:-translate-y-1.5 transition-all duration-300 group reveal-up"
+              data-aos-delay="300">
+              <div>
+                <div class="w-full h-48 overflow-hidden bg-surface-container-high relative">
+                  <img
+                    alt="Pharmaceutical validation engineer in cleanroom PPE inspecting stainless steel bioreactor equipment"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    src="img/hero-bioreactor-cqv.webp" />
+                  <div class="absolute top-3 left-3">
+                    <span
+                      class="inline-block px-space-sm py-0.5 rounded-full bg-surface-white/95 text-primary font-label-sm text-label-sm uppercase tracking-wider shadow-sm font-semibold transition-colors duration-200 group-hover:bg-primary group-hover:text-surface-white">Compliance</span>
+                  </div>
+                </div>
+                <div class="p-4 sm:p-5">
+                  <h3
+                    class="font-title-lg text-lg sm:text-title-lg text-navy-deep mb-2 group-hover:text-primary transition-colors leading-snug">
+                    A Practical Introduction to Validation Gap Assessments
+                  </h3>
+                  <p class="font-body-sm text-sm text-on-surface-variant mb-2 leading-relaxed">
+                    How risk-ranked evaluations highlight critical non-compliances before formal regulatory
+                    notifications occur.
+                  </p>
+                </div>
+              </div>
+              <div class="px-4 pb-4 pt-0 sm:px-5 sm:pb-5">
+                <a class="inline-flex items-center gap-1.5 text-primary font-title-md text-sm sm:text-base group-hover:text-secondary transition-colors font-semibold"
+                  data-path="insights" href="#">
+                  <span class="group-hover:underline">Read Insight</span> <span
+                    class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:translate-x-1.5 shrink-0">arrow_forward</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 10: FREQUENTLY ASKED QUESTIONS -->
+      <section class="w-full bg-surface py-12 sm:py-16 lg:py-24">
+        <div class="max-w-[1280px] mx-auto px-gutter">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            <!-- Left Info Column -->
+            <div class="lg:col-span-5 flex flex-col gap-3 sm:gap-space-sm reveal-up" data-aos-delay="100">
+              <span
+                class="font-label-sm text-xs sm:text-label-sm uppercase tracking-widest text-secondary font-semibold">FREQUENTLY
+                ASKED QUESTIONS</span>
+              <h2 class="font-headline-lg text-2xl sm:text-3xl lg:text-headline-lg text-navy-deep font-bold leading-tight">
+                Have questions? We have answers.
+              </h2>
+              <p class="font-body-md text-sm sm:text-base text-on-surface-variant leading-relaxed">
+                Explore clear responses to common inquiries regarding our validation scope, geographic availability, and
+                consulting deliverables.
+              </p>
+              <div class="pt-2 sm:pt-space-xs">
+                <a class="inline-flex items-center gap-2 text-primary font-title-md text-sm sm:text-base hover:text-secondary group transition-colors font-semibold"
+                  href="mailto:info@prielpharma.in">
+                  <span class="group-hover:underline">Contact directly via email</span>
+                  <span
+                    class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:translate-x-1.5 shrink-0">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Accordion Right -->
+            <div class="lg:col-span-7 flex flex-col gap-3.5 sm:gap-4 md:gap-4" id="faq-container">
+              <!-- FAQ 1 -->
+              <div
+                class="rounded-2xl bg-surface-white border border-[#DCE4ED] shadow-sm faq-item hover:border-secondary/40 transition-colors duration-200 overflow-hidden reveal-up"
+                data-aos-delay="100">
+                <button
+                  class="w-full p-4 sm:p-5 lg:p-6 flex items-center justify-between text-left gap-3 sm:gap-4 faq-toggle hover:bg-pale-blue/30 transition-colors duration-150"
+                  type="button">
+                  <span class="font-title-lg text-base sm:text-lg text-navy-deep font-semibold leading-snug">What types of pharmaceutical
+                    projects does Priel support?</span>
+                  <div class="w-8 h-8 rounded-full bg-pale-blue flex items-center justify-center shrink-0 transition-colors duration-200">
+                    <span
+                      class="material-symbols-outlined text-primary text-[20px] transition-transform duration-300 faq-icon">expand_more</span>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-inner px-4 sm:px-5 lg:px-6">
+                    <p class="font-body-md text-sm sm:text-base text-on-surface-variant leading-relaxed pb-4 sm:pb-5 lg:pb-6">
+                      Priel supports both greenfield and brownfield pharmaceutical facilities, equipment upgrades,
+                      utility expansions, computerized system implementations, and comprehensive GxP remediation
+                      programs across formulation, API, and sterile processing plants.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 2 -->
+              <div
+                class="rounded-2xl bg-surface-white border border-[#DCE4ED] shadow-sm faq-item hover:border-secondary/40 transition-colors duration-200 overflow-hidden reveal-up"
+                data-aos-delay="150">
+                <button
+                  class="w-full p-4 sm:p-5 lg:p-6 flex items-center justify-between text-left gap-3 sm:gap-4 faq-toggle hover:bg-pale-blue/30 transition-colors duration-150"
+                  type="button">
+                  <span class="font-title-lg text-base sm:text-lg text-navy-deep font-semibold leading-snug">Which qualification and
+                    validation activities can Priel assist with?</span>
+                  <div class="w-8 h-8 rounded-full bg-pale-blue flex items-center justify-center shrink-0 transition-colors duration-200">
+                    <span
+                      class="material-symbols-outlined text-primary text-[20px] transition-transform duration-300 faq-icon">expand_more</span>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-inner px-4 sm:px-5 lg:px-6">
+                    <p class="font-body-md text-sm sm:text-base text-on-surface-variant leading-relaxed pb-4 sm:pb-5 lg:pb-6">
+                      We assist with Design Qualification (DQ), Installation (IQ), Operational (OQ), and Performance
+                      Qualification (PQ), CSV/CSA for computerized systems, process validation protocols, cleaning
+                      validation matrices, HVAC validation, and thermal/environmental mapping.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 3 -->
+              <div
+                class="rounded-2xl bg-surface-white border border-[#DCE4ED] shadow-sm faq-item hover:border-secondary/40 transition-colors duration-200 overflow-hidden reveal-up"
+                data-aos-delay="200">
+                <button
+                  class="w-full p-4 sm:p-5 lg:p-6 flex items-center justify-between text-left gap-3 sm:gap-4 faq-toggle hover:bg-pale-blue/30 transition-colors duration-150"
+                  type="button">
+                  <span class="font-title-lg text-base sm:text-lg text-navy-deep font-semibold leading-snug">Can Priel support audit
+                    readiness and compliance gap assessments?</span>
+                  <div class="w-8 h-8 rounded-full bg-pale-blue flex items-center justify-center shrink-0 transition-colors duration-200">
+                    <span
+                      class="material-symbols-outlined text-primary text-[20px] transition-transform duration-300 faq-icon">expand_more</span>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-inner px-4 sm:px-5 lg:px-6">
+                    <p class="font-body-md text-sm sm:text-base text-on-surface-variant leading-relaxed pb-4 sm:pb-5 lg:pb-6">
+                      Yes. We perform pre-audit gap assessments, mock inspections, readiness reviews of SOPs and batch
+                      documentation, and provide technical guidance on addressing historical CAPAs and audit
+                      observations.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 4 -->
+              <div
+                class="rounded-2xl bg-surface-white border border-[#DCE4ED] shadow-sm faq-item hover:border-secondary/40 transition-colors duration-200 overflow-hidden reveal-up"
+                data-aos-delay="250">
+                <button
+                  class="w-full p-4 sm:p-5 lg:p-6 flex items-center justify-between text-left gap-3 sm:gap-4 faq-toggle hover:bg-pale-blue/30 transition-colors duration-150"
+                  type="button">
+                  <span class="font-title-lg text-base sm:text-lg text-navy-deep font-semibold leading-snug">What information should I share
+                    before requesting a consultation?</span>
+                  <div class="w-8 h-8 rounded-full bg-pale-blue flex items-center justify-center shrink-0 transition-colors duration-200">
+                    <span
+                      class="material-symbols-outlined text-primary text-[20px] transition-transform duration-300 faq-icon">expand_more</span>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-inner px-4 sm:px-5 lg:px-6">
+                    <p class="font-body-md text-sm sm:text-base text-on-surface-variant leading-relaxed pb-4 sm:pb-5 lg:pb-6">
+                      Sharing your high-level project goals, facility type, relevant equipment or systems requiring
+                      qualification, target timelines, and any specific regulatory standards (e.g. US FDA, EU GMP, WHO)
+                      helps us prepare a structured technical scope discussion.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 5 -->
+              <div
+                class="rounded-2xl bg-surface-white border border-[#DCE4ED] shadow-sm faq-item hover:border-secondary/40 transition-colors duration-200 overflow-hidden reveal-up"
+                data-aos-delay="300">
+                <button
+                  class="w-full p-4 sm:p-5 lg:p-6 flex items-center justify-between text-left gap-3 sm:gap-4 faq-toggle hover:bg-pale-blue/30 transition-colors duration-150"
+                  type="button">
+                  <span class="font-title-lg text-base sm:text-lg text-navy-deep font-semibold leading-snug">Does Priel support projects
+                    outside Gujarat?</span>
+                  <div class="w-8 h-8 rounded-full bg-pale-blue flex items-center justify-center shrink-0 transition-colors duration-200">
+                    <span
+                      class="material-symbols-outlined text-primary text-[20px] transition-transform duration-300 faq-icon">expand_more</span>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-inner px-4 sm:px-5 lg:px-6">
+                    <p class="font-body-md text-sm sm:text-base text-on-surface-variant leading-relaxed pb-4 sm:pb-5 lg:pb-6">
+                      Yes. While based in Ahmedabad, Priel supports projects across pan-India pharmaceutical clusters
+                      and international manufacturing facilities depending on engagement requirements.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 11: FINAL CTA BANNER -->
+      <section class="w-full bg-surface-white py-space-xl lg:py-24">
+        <div class="max-w-[1280px] mx-auto px-gutter">
+          <div
+            class="rounded-2xl sm:rounded-3xl bg-pale-blue p-6 sm:p-10 lg:p-16 border border-primary/10 shadow-sm relative overflow-hidden reveal-scale hover:shadow-xl transition-all duration-500">
+            <!-- Subtle scientific decorative caustics & circular aura -->
+            <div
+              class="absolute -right-24 -bottom-24 w-[480px] h-[480px] rounded-full bg-gradient-to-br from-secondary-fixed/30 to-secondary-container/20 blur-2xl pointer-events-none">
+            </div>
+            <div
+              class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full border border-primary/15 pointer-events-none">
+            </div>
+            <div
+              class="absolute -right-10 -bottom-10 w-64 h-64 rounded-full border border-secondary/25 pointer-events-none">
+            </div>
+            <div class="max-w-2xl relative z-10 flex flex-col gap-4 sm:gap-space-md">
+              <span class="font-label-sm text-xs sm:text-label-sm uppercase tracking-widest text-secondary font-semibold">LET'S
+                DISCUSS YOUR PROJECT</span>
+              <h2 class="font-headline-lg text-2xl sm:text-3xl lg:text-4xl text-navy-deep font-bold tracking-tight leading-snug sm:leading-tight">
+                Need a clearer path to qualification, validation, or compliance?
+              </h2>
+              <p class="font-body-md text-sm sm:text-base text-on-surface-variant leading-relaxed">
+                Tell us about your facility, systems, or project goals. The Priel Pharma team can discuss the scope and
+                the support that may be appropriate.
+              </p>
+              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-space-md pt-2 sm:pt-space-xs">
+                <a class="inline-flex items-center justify-center gap-2 bg-primary-container text-on-primary font-title-md text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl hover:bg-navy-deep hover:shadow-[0_8px_20px_rgba(7,29,61,0.25)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 shadow-md group whitespace-nowrap font-semibold"
+                  data-path="request-a-consultation" href="#">
+                  <span>Request a Consultation</span>
+                  <span
+                    class="material-symbols-outlined text-[18px] sm:text-[20px] transition-transform duration-200 group-hover:translate-x-1 shrink-0">arrow_forward</span>
+                </a>
+                <a class="inline-flex items-center justify-center gap-2 bg-surface-white text-navy-deep font-title-md text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl border border-[#DCE4ED] hover:bg-surface-container hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 shadow-sm group whitespace-nowrap font-semibold"
+                  href="tel:+919173694746">
+                  <span
+                    class="material-symbols-outlined text-secondary text-[18px] sm:text-[20px] transition-transform duration-200 group-hover:scale-110 shrink-0">call</span>
+                  <span class="whitespace-nowrap">Call +91 91736 94746</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script>
+      function initInteractive() {
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        faqToggles.forEach(toggle => {
+          toggle.addEventListener('click', () => {
+            const item = toggle.closest('.faq-item');
+            if (!item) return;
+            const content = item.querySelector('.faq-content');
+            const icon = item.querySelector('.faq-icon');
+            const isOpen = content ? content.classList.contains('open') : false;
+
+            // Close other items
+            document.querySelectorAll('.faq-content').forEach(c => c.classList.remove('open'));
+            document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180'));
+
+            if (!isOpen && content) {
+              content.classList.add('open');
+              if (icon) icon.classList.add('rotate-180');
+            }
+          });
+        });
+
+        // AOS style Scroll-Triggered Reveal with IntersectionObserver
+        const revealElements = document.querySelectorAll('.reveal-up, .reveal-fade, .reveal-scale');
+
+        if ('IntersectionObserver' in window) {
+          const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('aos-animate');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, {
+            root: null,
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+          });
+
+          revealElements.forEach(el => revealObserver.observe(el));
+        } else {
+          // Fallback for older browsers
+          revealElements.forEach(el => el.classList.add('aos-animate'));
+        }
+
+        // Hero Interactive Spotlight Mouse Tracker (Hover reveals dark dots)
+        const hero = document.getElementById('hero-section');
+        const hoverDots = document.getElementById('hero-hover-dots');
+        const cursorGlow = document.getElementById('hero-cursor-glow');
+
+        if (hero && hoverDots) {
+          hero.addEventListener('pointerenter', () => {
+            hoverDots.style.opacity = '1';
+            if (cursorGlow) cursorGlow.style.opacity = '1';
+          });
+
+          hero.addEventListener('pointerleave', () => {
+            hoverDots.style.opacity = '0';
+            if (cursorGlow) cursorGlow.style.opacity = '0';
+          });
+
+          hero.addEventListener('pointermove', (e) => {
+            const rect = hero.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            hero.style.setProperty('--mouse-x', `${x}px`);
+            hero.style.setProperty('--mouse-y', `${y}px`);
+            hoverDots.style.opacity = '1';
+            if (cursorGlow) cursorGlow.style.opacity = '1';
+          });
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initInteractive);
+      } else {
+        initInteractive();
+      }
+    </script>
+  </main>
+  <footer class="w-full bg-navy-deep text-on-primary pt-space-xl pb-space-lg border-t border-white/10">
+    <div class="max-w-[1280px] mx-auto px-gutter flex flex-col gap-space-xl">
+      <div class="flex flex-wrap gap-y-10 gap-x-8 lg:gap-x-12 justify-between">
+        <!-- Brand Info -->
+        <div class="w-full lg:max-w-sm flex flex-col gap-space-md">
+          <div class="flex items-center group"><img alt="Priel Pharma - GxP Solutions"
+              class="h-20 lg:h-[84px] w-auto object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-105"
+              src="img/pirel-logo.png" />
+          </div>
+          <p class="font-body-sm text-body-sm text-on-tertiary-container max-w-sm">Qualification | Validation | Turnkey
+            Projects | GMP Consulting</p>
+          <div class="flex items-center gap-space-sm pt-space-xs"><span
+              class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-tertiary-container text-secondary-container font-label-sm text-label-sm hover:brightness-110 transition-all cursor-default"><span
+                class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>Audit Ready</span><span
+              class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm hover:brightness-110 transition-all cursor-default"><span
+                class="w-1.5 h-1.5 rounded-full bg-secondary-fixed-dim"></span>GxP Compliance</span></div>
+        </div>
+
+        <!-- Links & Contact: Flex Wrap so they sit side by side whenever width allows -->
+        <div class="flex flex-wrap gap-y-8 gap-x-8 sm:gap-x-12 lg:gap-x-14 grow justify-between">
+          <!-- Company Column -->
+          <div class="flex flex-col gap-space-sm min-w-[120px] grow sm:grow-0">
+            <span class="font-title-md text-title-md text-secondary-container uppercase tracking-wider font-semibold">Company</span>
+            <ul class="flex flex-col gap-space-xs">
+              <li class="list-none"><a
+                  class="font-body-sm text-body-sm text-on-tertiary-container hover:text-on-primary hover:translate-x-1 inline-block transition-all duration-200"
+                  data-path="about" href="#">About</a></li>
+              <li class="list-none"><a
+                  class="font-body-sm text-body-sm text-on-tertiary-container hover:text-on-primary hover:translate-x-1 inline-block transition-all duration-200"
+                  data-path="services" href="#">Services</a></li>
+              <li class="list-none"><a
+                  class="font-body-sm text-body-sm text-on-tertiary-container hover:text-on-primary hover:translate-x-1 inline-block transition-all duration-200"
+                  data-path="industries" href="#">Industries</a></li>
+              <li class="list-none"><a
+                  class="font-body-sm text-body-sm text-on-tertiary-container hover:text-on-primary hover:translate-x-1 inline-block transition-all duration-200"
+                  data-path="insights" href="#">Insights</a></li>
+            </ul>
+          </div>
+
+          <!-- Services Column -->
+          <div class="flex flex-col gap-space-sm min-w-[160px] grow sm:grow-0">
+            <span class="font-title-md text-title-md text-secondary-container uppercase tracking-wider font-semibold">Services</span>
+            <ul class="flex flex-col gap-space-xs">
+              <li class="list-none"><a
+                  class="font-body-sm text-body-sm text-on-tertiary-container hover:text-on-primary hover:translate-x-1 inline-block transition-all duration-200"
+                  data-path="turnkey-project-solutions" href="#">Turnkey Project Solutions</a></li>
+              <li class="list-none"><a
+                  class="font-body-sm text-body-sm text-on-tertiary-container hover:text-on-primary hover:translate-x-1 inline-block transition-all duration-200"
+                  data-path="audit-compliance" href="#">Audit Compliance</a></li>
+              <li class="list-none"><a
+                  class="font-body-sm text-body-sm text-on-tertiary-container hover:text-on-primary hover:translate-x-1 inline-block transition-all duration-200"
+                  data-path="gap-assessment" href="#">GAP Assessment</a></li>
+              <li class="list-none"><a
+                  class="font-body-sm text-body-sm text-on-tertiary-container hover:text-on-primary hover:translate-x-1 inline-block transition-all duration-200"
+                  data-path="validation-services" href="#">Validation Services</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Details Column -->
+          <div class="flex flex-col gap-space-sm min-w-[200px] grow sm:grow-0">
+            <span class="font-title-md text-title-md text-secondary-container uppercase tracking-wider font-semibold">Contact Details</span>
+            <div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-tertiary-container">
+              <p class="text-on-primary font-medium">Mayur Raval</p><a
+                class="hover:text-secondary-container transition-colors"
+                href="mailto:info@prielpharma.in">info@prielpharma.in</a><a
+                class="hover:text-secondary-container transition-colors" href="tel:+919173694746">+91 91736 94746</a>
+              <address class="not-italic leading-relaxed text-on-tertiary-container pt-space-xs">B/4, Pushpak City,
+                Hathijan,<br />Ahmedabad – 382445</address>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="border-t border-white/10 pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-on-tertiary-container">
+        <p class="">Copyright © Priel Pharma GxP Solutions. All rights reserved.</p>
+        <div class="flex items-center gap-space-lg"><a class="hover:text-on-primary transition-colors"
+            data-path="privacy-policy" href="#">Privacy Policy</a><a class="hover:text-on-primary transition-colors"
+            data-path="legal-compliance" href="#">Legal Compliance</a></div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
