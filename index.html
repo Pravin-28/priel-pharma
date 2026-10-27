@@ -379,20 +379,38 @@
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
             <!-- Left Content -->
             <div class="lg:col-span-7 flex flex-col gap-space-md reveal-up" data-aos-delay="100">
-              <!-- Redesigned Premium Biotech Status Subtitle Badge -->
+              <!-- Redesigned Premium Biotech Status Subtitle Badge (Responsive) -->
               <div
-                class="inline-flex items-center flex-wrap gap-2.5 self-start px-4 py-1.5 rounded-full bg-surface-white/95 backdrop-blur-md border border-secondary/25 shadow-[0_2px_10px_-2px_rgba(0,104,122,0.12)] hover:border-secondary/50 transition-all duration-300 group cursor-default">
-                <span class="text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.06em] text-navy-deep flex items-center gap-1 sm:gap-1.5 font-sans">
-                  <span class="hover:text-primary transition-colors">Pharmaceutical Quality</span>
-                  <span class="text-secondary/50 font-normal">•</span>
-                  <span class="hover:text-primary transition-colors">Validation</span>
-                  <span class="text-secondary/50 font-normal">•</span>
-                  <span class="hover:text-primary transition-colors">Compliance</span>
-                </span>
-                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-pale-blue text-secondary font-sans text-[10px] font-bold tracking-wider uppercase border border-secondary/20 shadow-xs group-hover:bg-secondary group-hover:text-white transition-all duration-300">
-                  <span class="material-symbols-outlined text-[12px]">verified</span>
-                  <span>GxP</span>
-                </span>
+                class="inline-flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2.5 self-start px-3.5 sm:px-4 py-2 sm:py-1.5 rounded-2xl sm:rounded-full bg-surface-white/95 backdrop-blur-md border border-secondary/25 shadow-[0_2px_10px_-2px_rgba(0,104,122,0.12)] hover:border-secondary/50 transition-all duration-300 group cursor-default max-w-full">
+                <!-- Row 1 on mobile / Left group on desktop -->
+                <div class="flex items-center gap-2 sm:gap-1.5">
+                  <span class="text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.06em] text-navy-deep font-sans whitespace-nowrap hover:text-primary transition-colors">
+                    Pharmaceutical Quality
+                  </span>
+                  <!-- Mobile GxP Badge (paired with Pharmaceutical Quality on mobile) -->
+                  <span class="sm:hidden inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-pale-blue text-secondary font-sans text-[10px] font-bold tracking-wider uppercase border border-secondary/20 shadow-xs shrink-0">
+                    <span class="material-symbols-outlined text-[12px]">verified</span>
+                    <span>GxP</span>
+                  </span>
+                  <!-- Desktop Separator bullet -->
+                  <span class="hidden sm:inline text-secondary/50 font-normal">•</span>
+                </div>
+
+                <!-- Row 2 on mobile / Middle & End on desktop -->
+                <div class="flex items-center gap-1.5 sm:gap-1.5">
+                  <span class="text-[10.5px] sm:text-[12px] font-semibold uppercase tracking-[0.06em] text-navy-deep/85 sm:text-navy-deep font-sans whitespace-nowrap hover:text-primary transition-colors">
+                    Validation
+                  </span>
+                  <span class="text-secondary/50 font-normal text-[11px] sm:text-[12px]">•</span>
+                  <span class="text-[10.5px] sm:text-[12px] font-semibold uppercase tracking-[0.06em] text-navy-deep/85 sm:text-navy-deep font-sans whitespace-nowrap hover:text-primary transition-colors">
+                    Compliance
+                  </span>
+                  <!-- Desktop GxP Badge (at the end on desktop) -->
+                  <span class="hidden sm:inline-flex items-center gap-1 ml-1 px-2 py-0.5 rounded-full bg-pale-blue text-secondary font-sans text-[10px] font-bold tracking-wider uppercase border border-secondary/20 shadow-xs group-hover:bg-secondary group-hover:text-white transition-all duration-300 shrink-0">
+                    <span class="material-symbols-outlined text-[12px]">verified</span>
+                    <span>GxP</span>
+                  </span>
+                </div>
               </div>
               <h1
                 class="font-headline-xl text-3xl sm:text-4xl lg:text-headline-xl text-navy-deep tracking-tight leading-tight">
@@ -409,7 +427,7 @@
                   <span
                     class="material-symbols-outlined text-[18px] sm:text-[20px] transition-transform duration-200 group-hover:translate-x-1.5 shrink-0">arrow_forward</span>
                 </a>
-                <a class="inline-flex items-center justify-center bg-surface-container-low text-primary font-title-md text-sm sm:text-title-md px-6 sm:px-space-lg py-3.5 sm:py-space-md rounded-lg hover:bg-pale-blue hover:text-navy-deep transition-all duration-200 border border-transparent hover:border-primary/10 whitespace-nowrap"
+                <a class="inline-flex items-center justify-center bg-[#dbe8f5] hover:bg-navy-deep text-navy-deep hover:text-white font-title-md text-sm sm:text-title-md px-6 sm:px-space-lg py-3.5 sm:py-space-md rounded-lg transition-all duration-200 border border-[#9ec2e4] hover:border-navy-deep shadow-xs hover:shadow-md group whitespace-nowrap font-semibold"
                   href="#services">
                   Explore Our Services
                 </a>
@@ -2049,15 +2067,15 @@
 
       </div>
 
-      <!-- Bottom Bar: Copyright & Legal Compliance -->
-      <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-        <p>© 2026 <a class="text-slate-300 hover:text-white transition-colors underline-offset-2 hover:underline" data-path="home" href="javascript:void(0)">Priel Pharma</a> GxP Solutions. All rights reserved.</p>
-        <div class="flex items-center gap-6">
-          <a class="hover:text-white transition-colors" data-path="privacy-policy" href="javascript:void(0)">Privacy Policy</a>
-          <span class="text-white/20">•</span>
-          <a class="hover:text-white transition-colors" data-path="legal-compliance" href="javascript:void(0)">Legal Compliance</a>
-          <span class="text-white/20">•</span>
-          <a class="hover:text-white transition-colors" data-path="request-a-consultation" href="javascript:void(0)">Client Portal</a>
+      <!-- Bottom Bar: Copyright & Legal Compliance (Mobile Responsive) -->
+      <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center sm:text-left">
+        <p class="leading-relaxed">© 2026 <a class="text-slate-300 hover:text-white transition-colors underline-offset-2 hover:underline" data-path="home" href="javascript:void(0)">Priel Pharma</a> GxP Solutions. All rights reserved.</p>
+        <div class="flex flex-wrap items-center justify-center gap-x-3.5 sm:gap-x-6 gap-y-2 text-[11px] sm:text-xs">
+          <a class="whitespace-nowrap hover:text-white transition-colors" data-path="privacy-policy" href="javascript:void(0)">Privacy Policy</a>
+          <span class="text-white/20 select-none">•</span>
+          <a class="whitespace-nowrap hover:text-white transition-colors" data-path="legal-compliance" href="javascript:void(0)">Legal Compliance</a>
+          <span class="text-white/20 select-none">•</span>
+          <a class="whitespace-nowrap hover:text-white transition-colors" data-path="request-a-consultation" href="javascript:void(0)">Client Portal</a>
         </div>
       </div>
 
